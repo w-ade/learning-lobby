@@ -9,7 +9,7 @@ export default function Track() {
     <div className="ll-cols ll-grid3">
       {courses.map((c, n) => <div key={c.t} className="ll-card">
         <span className="ll-icon">{icon(c.i)}</span>
-        <h2>{String(n + 1).padStart(2, "0")} / {c.t}</h2>
+        <h2>{"A" + String(n + 1).padStart(2, "0")} / {c.t}</h2>
         <p>{c.d}</p>
       </div>)}
     </div>
