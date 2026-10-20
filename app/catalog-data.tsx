@@ -1,0 +1,35 @@
+export const icon = (d: string) => <svg viewBox="0 0 24 24"><path d={d} /></svg>;
+export const courses = [
+  { t: "Computing Fundamentals", d: "How a computer actually works: architecture, CPU, memory, storage, binary, operating systems, processes, and the terminal.", i: "M5 5h14v10H5zM9 19h6M12 15v4" },
+  { t: "Computer Science", d: "The theory behind programs: programming fundamentals, data structures, algorithms, complexity, and computational models.", i: "M8 6l-5 6 5 6M16 6l5 6-5 6" },
+  { t: "Mathematics for Computing and AI", d: "The math you'll actually use: discrete math, logic, linear algebra, probability, and statistics.", i: "M5 7h14M5 12h14M9 17h6" },
+  { t: "Developer Tooling and Workflow", d: "Working like an engineer: Git, the shell, editors, debugging, reading documentation, and package management.", i: "M4 17l6-5-6-5M12 19h8" },
+  { t: "Software Engineering", d: "Building software that lasts: languages, architecture, APIs, testing, version control, and deployment.", i: "M4 6h16v12H4zM4 10h16" },
+  { t: "Web Platform", d: "The deep web track: HTML, CSS, JavaScript, TypeScript, browsers, React, and Next.js, built from the original in-depth guide.", i: "M12 3a9 9 0 100 18 9 9 0 000-18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" },
+  { t: "Apple Platforms", d: "Building for Apple: Swift, SwiftUI, UIKit, AppKit, Xcode, and shipping to iOS and macOS.", i: "M12 7c2-3 5-2 5-2s0 3-3 4M7 9c2-1 4 0 5 0s3-1 5 0c2 1 2 5 0 9-1 2-2 3-3 3s-1-1-2-1-1 1-2 1-2-1-3-3c-2-4-2-8 0-9z" },
+  { t: "Systems and Infrastructure", d: "How technology connects and runs: networking, Linux and OS administration, cloud, hardware diagnostics, and reliability.", i: "M4 5h16v5H4zM4 14h16v5H4zM8 7.5h.01M8 16.5h.01" },
+  { t: "Security and Identity", d: "Keeping systems safe: authentication, authorization, cryptography basics, threat modeling, and secure design.", i: "M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z" },
+  { t: "Data and Databases", d: "How information is modeled, stored, and retrieved: SQL, PostgreSQL, indexing, pipelines, and search.", i: "M5 6c0-2 14-2 14 0v12c0 2-14 2-14 0zM5 6c0 2 14 2 14 0M5 12c0 2 14 2 14 0" },
+  { t: "Design Engineering", d: "Where design meets code: interaction and visual design, typography, accessibility, prototyping, and design systems.", i: "M4 20l4-1 11-11-3-3L5 16zM14 7l3 3" },
+  { t: "Artificial Intelligence", d: "How machines learn: machine learning, neural networks, language models, embeddings, retrieval, inference, and evaluation.", i: "M12 4a4 4 0 014 4 4 4 0 01-1 7v3H9v-3a4 4 0 01-1-7 4 4 0 014-4zM9 21h6" },
+  { t: "Embedded and Hardware", d: "Software that touches the physical world: microcontrollers, firmware, sensors, and hardware interfaces.", i: "M7 7h10v10H7zM10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4" },
+];
+
+export const agentCourses = [
+  { t: "Agent Engineering Foundations", d: "What an agent really is: model vs. agent, functions vs. workflows vs. agents vs. autonomy, and when not to build an agent at all.", i: "M12 3a9 9 0 100 18 9 9 0 000-18zM12 8v4l3 2" },
+  { t: "How Language Models Work", d: "Just enough model internals to reason about agents: tokens, context windows, sampling, inference, model limits, and why models hallucinate.", i: "M12 4a4 4 0 014 4 4 4 0 01-1 7v3H9v-3a4 4 0 01-1-7 4 4 0 014-4zM9 21h6" },
+  { t: "Working with Model APIs", d: "Talking to models as software: requests, messages and roles, streaming, structured output, rate limits, cost, and choosing models.", i: "M4 12h6M14 12h6M10 8l4 4-4 4" },
+  { t: "Prompting and Instructions", d: "Designing behavior in language: system prompts, roles, examples, specifications, and writing instructions an agent reliably follows.", i: "M5 5h14v10H9l-4 4z" },
+  { t: "Tools and Function Calling", d: "How agents act on the world: tool schemas, the function-calling cycle, tool registries, MCP, and designing tools a model uses well.", i: "M14 6l4 4-8 8H6v-4zM12 8l4 4" },
+  { t: "The Agent Loop", d: "The core runtime: observe, decide, act, repeat, plus stopping conditions, retries, error handling, and building the loop yourself.", i: "M4 12a8 8 0 0114-5l2-2v6h-6l2-2a5 5 0 10.5 6" },
+  { t: "Context, State, and Memory", d: "How agents remember: context engineering, conversation state, short- and long-term memory, summarization, and persistence.", i: "M5 6c0-2 14-2 14 0v12c0 2-14 2-14 0zM5 6c0 2 14 2 14 0M5 12c0 2 14 2 14 0" },
+  { t: "Retrieval and Knowledge", d: "Giving agents knowledge: embeddings, vector search, RAG, chunking, and grounding answers in real sources.", i: "M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4" },
+  { t: "Planning and Reasoning", d: "How agents break down work: task decomposition, plan-and-execute, reflection, self-correction, and reasoning models.", i: "M5 5h6v6H5zM13 13h6v6h-6zM11 8h4v5" },
+  { t: "Multi-Agent Systems", d: "When one agent isn't enough: orchestrators and subagents, handoffs, delegation, and the real costs of coordination.", i: "M7 7a3 3 0 100 .01M17 7a3 3 0 100 .01M12 17a3 3 0 100 .01M8 9l3 6M16 9l-3 6" },
+  { t: "Safety, Guardrails, and Permissions", d: "Keeping agents in bounds: approvals, human-in-the-loop, sandboxing, prompt injection, untrusted content, and least privilege.", i: "M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z" },
+  { t: "Evaluation and Observability", d: "Knowing if an agent works: evals, test sets, tracing, logging, token and cost tracking, and debugging agent behavior.", i: "M4 19V9M10 19V5M16 19v-7M22 19H2" },
+  { t: "Agents in Production", d: "Running agents as real software: async jobs, queues, scheduling, durable workflows, databases, deployment, and cost control.", i: "M4 5h16v5H4zM4 14h16v5H4zM8 7.5h.01M8 16.5h.01" },
+  { t: "Agent Interfaces and UX", d: "Designing for people and agents together: chat and beyond, streaming UI, approvals, trust, and showing what an agent is doing.", i: "M4 5h16v11H4zM8 20h8" },
+  { t: "Frameworks and the Ecosystem", d: "Once you know the machinery: OpenAI Agents SDK, Vercel AI SDK, LangGraph, MCP servers, and when a framework helps or hides.", i: "M4 7l8-4 8 4-8 4zM4 12l8 4 8-4M4 17l8 4 8-4" },
+  { t: "Capstone: Build Your Own Agent", d: "A from-scratch research agent in TypeScript, grown step by step: tools, loop, memory, scheduling, a database, and a UI.", i: "M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z" },
+];

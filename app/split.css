@@ -1,4 +1,4 @@
-html, body { margin: 0; background: #FAFAF9; }
+html, body { margin: 0; background: #FFFFFF; }
 .ll-page { max-width: 1200px; margin: 0 auto; padding: 32px 24px; color: #111119; font-family: var(--font-inter), system-ui, sans-serif; }
 .ll-head { display: flex; gap: 10px; align-items: flex-start; padding-bottom: 20px; border-bottom: 1px solid #ECECEC; margin-bottom: 20px; }
 .ll-logo { width: 18px; height: 18px; margin-top: 7px; fill: none; stroke: currentColor; stroke-width: 1.8; }
