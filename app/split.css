@@ -13,3 +13,9 @@ html, body { margin: 0; background: #FAFAF9; }
 .ll-tree .glide { min-height: 0; background: transparent; }
 .ll-tree .glide main { max-width: none; width: auto; margin: 0; padding: 0; }
 @media (max-width: 720px) { .ll-cols { grid-template-columns: 1fr; } }
+.ll-grid3 { grid-template-columns: repeat(3, 1fr); }
+.ll-grid3 .ll-card { margin-bottom: 0; }
+.ll-group { margin: 24px 0 10px; font-size: 12px; font-weight: 600; color: #6b6b70; letter-spacing: .02em; text-transform: uppercase; }
+.ll-nav { font-size: 12px; color: #6b6b70; text-decoration: none; padding: 6px 10px; border: 1px solid #E0E0E0; border-radius: 8px; align-self: center; }
+.ll-nav:hover { color: #111119; }
+@media (max-width: 900px) { .ll-grid3 { grid-template-columns: 1fr 1fr; } }

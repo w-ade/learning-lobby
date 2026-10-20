@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LearnTree from "./learn/LearnTree";
 import agent from "./learn/agent-tree.json";
 import foundations from "./learn/foundations-tree.json";
@@ -15,7 +16,8 @@ export default function Home() {
   return <div className="ll-page">
     <header className="ll-head">
       <svg className="ll-logo" viewBox="0 0 24 24"><rect x="3" y="11" width="7" height="7" rx="1" /><rect x="11" y="11" width="7" height="7" rx="1" /><rect x="13" y="3" width="7" height="7" rx="1" transform="rotate(12 16.5 6.5)" /></svg>
-      <div><h1>Learning Labs</h1><p>Explore. Understand. Build.</p></div>
+      <div style={{ flex: 1 }}><h1>Learning Labs</h1><p>Explore. Understand. Build.</p></div>
+      <Link href="/suggested" className="ll-nav">Proposed catalog</Link>
     </header>
     <div className="ll-cols">
       {classes.map((c) => <section key={c.n} className="ll-col">
