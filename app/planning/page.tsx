@@ -5,8 +5,8 @@ import { icon, courses, agentCourses } from "../catalog-data";
 import { Header } from "./header";
 
 const tracks = [
-  { href: "/planning/a", label: "Track A", t: "Technical Foundations", d: "The computing, engineering, and platform groundwork everything else is built on.", n: courses.length, i: courses[0].i },
-  { href: "/planning/b", label: "Track B", t: "Agent Engineering", d: "How agents actually work, from models and tools to loops, memory, safety, and production.", n: agentCourses.length, i: agentCourses[0].i },
+  { href: "/planning/a", label: "Track A", t: "Technical Foundations", d: "The computing, engineering, and platform groundwork everything else is built on.", n: courses.length, i: courses[0].i, bg: "#F2A04A", fg: "#F2A04A" },
+  { href: "/planning/b", label: "Track B", t: "Agent Engineering", d: "How agents actually work, from models and tools to loops, memory, safety, and production.", n: agentCourses.length, i: agentCourses[0].i, bg: "#E8C928", fg: "#E8C928" },
 ];
 
 export default function Planning() {
@@ -17,7 +17,7 @@ export default function Planning() {
         <span className="ll-icon">{icon(k.i)}</span>
         <h2>{k.label} / {k.t}</h2>
         <p>{k.d}</p>
-        <p>{k.n} courses →</p>
+        <span style={{ display: "inline-block", marginTop: 8, padding: "3px 10px", borderRadius: 999, background: "transparent", color: k.fg, border: `1.5px solid ${k.bg}`, fontSize: 12, fontWeight: 500 }}>{k.n} courses</span>
       </Link>)}
     </div>
   </div>;
