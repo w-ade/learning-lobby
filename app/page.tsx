@@ -12,7 +12,7 @@ export default function Login() {
   return (
     <main style={{ minHeight: "100vh", margin: 0, background: "#FFFFFF", fontFamily: FONT, position: "relative" }}>
       <div className="ll-login" style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
-      <h1 className="ll-hero" style={{ margin: 0, color: "#111119", fontWeight: 700, fontSize: "calc(100cqw / 6.4)", whiteSpace: "nowrap", lineHeight: 0.92, letterSpacing: "-0.04em" }}>
+      <h1 className="ll-hero" style={{ margin: 0, color: "#111119", fontWeight: 700, fontSize: "calc(100cqw / 12.8)", whiteSpace: "nowrap", lineHeight: 0.92, letterSpacing: "-0.04em" }}>
         Learning Lobby
       </h1>
       
