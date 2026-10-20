@@ -15,6 +15,6 @@ export function MindMap() {
     })();
     return () => { dead = true; stop?.(); };
   }, []);
-  return <pre ref={ref} className="ll-mm" aria-label="Learning Labs mind map, animated ASCII art"
+  return <pre ref={ref} className="ll-mm" aria-label="Learning Lobby mind map, animated ASCII art"
     style={{ margin: 0, color: "#111119", fontFamily: "Menlo, Consolas, monospace", fontSize: "var(--mm-size, calc(100cqw / 60))", maxWidth: "100%", overflow: "hidden", lineHeight: 1.2 }} />;
 }

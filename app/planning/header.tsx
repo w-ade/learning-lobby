@@ -11,7 +11,7 @@ export function Header({ title, sub, count }: { title: string; sub: string; coun
   const cur = tabs.find(t => t.href === path);
   return <>
     <nav className="ll-bar">
-      <Link href="/planning" className="ll-brand">Learning Labs</Link>
+      <Link href="/planning" className="ll-brand">Learning Lobby</Link>
       <div className="ll-seg">
         {tabs.map(t => <Link key={t.href} href={t.href} className={t.href === path ? "on" : ""}>{t.l}</Link>)}
       </div>

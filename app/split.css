@@ -37,4 +37,4 @@ html, body { margin: 0; background: #FFFFFF; }
 .ll-login { max-width: 488px; margin: 0 auto; padding: 32px 24px 100px; box-sizing: border-box; }
 .ll-login { container-type: inline-size; }
 @media (min-width: 768px) { .ll-login { max-width: 700px; padding: 32px 56px 100px; } }
-@media (max-width: 560px) { .ll-mm { --mm-size: calc(100cqw / 19.6); } }
+@media (max-width: 560px) { .ll-mm { --mm-size: calc(100cqw / 26.6); } }

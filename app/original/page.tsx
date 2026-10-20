@@ -16,7 +16,7 @@ export default function Home() {
   return <div className="ll-page">
     <header className="ll-head">
       <svg className="ll-logo" viewBox="0 0 24 24"><rect x="3" y="11" width="7" height="7" rx="1" /><rect x="11" y="11" width="7" height="7" rx="1" /><rect x="13" y="3" width="7" height="7" rx="1" transform="rotate(12 16.5 6.5)" /></svg>
-      <div style={{ flex: 1 }}><h1>Learning Labs</h1><p>Explore. Understand. Build.</p></div>
+      <div style={{ flex: 1 }}><h1>Learning Lobby</h1><p>Explore. Understand. Build.</p></div>
       <Link href="/" className="ll-nav">Catalog</Link>
     </header>
     <div className="ll-cols">

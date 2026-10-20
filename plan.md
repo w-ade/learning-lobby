@@ -1,4 +1,4 @@
-# learninglabs
+# learninglobby
 
 Planning space for the two classes. Type here, it autosaves to `plan.md`.
 

@@ -1,9 +1,9 @@
-/* Adapted from ascii-magic-art "mind-map" (MIT, ASCII Magic). Relabeled for Learning Labs, light palette. */
+/* Adapted from ascii-magic-art "mind-map" (MIT, ASCII Magic). Relabeled for Learning Lobby, light palette. */
 import { Grid, palette, clamp } from "ascii-magic-art/lib/kit.js";
 
 export const meta = {
-  slug: "learning-labs-mind-map", name: "Learning Labs Mind Map", category: "explainers",
-  note: "Learning Labs growing out into its subject areas.",
+  slug: "learning-lobby-mind-map", name: "Learning Lobby Mind Map", category: "explainers",
+  note: "Learning Lobby growing out into its subject areas.",
   cols: 100, rows: 30, fps: 24,
   palette: palette(["#111119", "#85858A", "#E0E0E0", "#FF3E41", "#F2A04A", "#E0B800", "#2FBF71", "#3582FA", "#F25CD0", "#111119", "#557AF7"]),
 };
@@ -67,7 +67,7 @@ export default function create() {
       node(x, y, name, co, at(t0 + 0.8, 0.5), false);
       leaves.forEach(([text, lx, ly], j) => leaf(lx, ly, text, co, at(t0 + 1.9 + j * 0.3, 0.5)));
     });
-    node(CX, CY, "Learning Labs", "a", at(-0.5, 0.8), true);
+    node(CX, CY, "Learning Lobby", "a", at(-0.5, 0.8), true);
     const sparkle = Math.floor(lt * 2) % 6;
     if (lt > 5) g.set(CX - 10, CY, "◆", TOPICS[sparkle][3]);
     return g.frame();

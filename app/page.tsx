@@ -13,7 +13,7 @@ export default function Login() {
     <main style={{ minHeight: "100vh", margin: 0, background: "#FFFFFF", fontFamily: FONT, position: "relative" }}>
       <div className="ll-login" style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
       <h1 className="ll-hero" style={{ margin: 0, color: "#111119", fontWeight: 700, fontSize: "calc(100cqw / 6.4)", whiteSpace: "nowrap", lineHeight: 0.92, letterSpacing: "-0.04em" }}>
-        Learning Labs
+        Learning Lobby
       </h1>
       
       <form action={action} style={{ display: "flex", gap: "8px", width: "448px", maxWidth: "calc((100vw - 40px) / 0.71875)", zoom: 0.71875 }}>

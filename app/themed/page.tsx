@@ -20,7 +20,7 @@ export default function Themed() {
   return <div className="rk">
     <section className="rk-sheet">
       <header className="rk-head">
-        <div><h3>Learning Labs</h3><p className="rk-body">Explore. Understand. Build.</p></div>
+        <div><h3>Learning Lobby</h3><p className="rk-body">Explore. Understand. Build.</p></div>
         <div className="rk-nav"><Link href="/suggested" className="rk-pill">Plain version</Link><Link href="/" className="rk-pill">Current page</Link></div>
       </header>
       <h4 className="rk-sec">Track A — Technical Foundations</h4>
