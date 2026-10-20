@@ -1,0 +1,70 @@
+/* The page shell (column, Back button, title, footnote, highlight) comes from
+   ../tree/glide.css via the .glide wrapper, so /learn matches /tree. This file
+   only styles the tree itself, in the same language: 36px rows, 13px text,
+   8px corners, and the fluid hover instead of a :hover background. */
+
+/* A smaller title than /tree's 30px. :global(.glide) outranks glide.css's
+   ".glide h1" rule. */
+:global(.glide) .title {
+  font-size: 20px;
+}
+
+.tree {
+  /* The highlight is absolutely positioned inside this box. */
+  position: relative;
+  padding: 4px;
+}
+
+.node { min-width: 0; }
+
+.row {
+  /* Above the highlight. */
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 3px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  border: 0;
+  border-radius: var(--radius-item);
+  background: transparent;
+  color: var(--fg);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.row:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.domain { font-weight: 600; letter-spacing: .01em; }
+
+.chevron, .icon {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  flex: none;
+  place-items: center;
+  color: var(--muted);
+}
+
+.chevron { width: 13px; }
+.chevron svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.label {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.children { overflow: hidden; }

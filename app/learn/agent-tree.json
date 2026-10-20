@@ -1,0 +1,310 @@
+[
+  {
+    "id": "ab-what-from-scratch-means",
+    "label": "Introduction to Agent Engineering",
+    "number": "01",
+    "children": [
+      {
+        "id": "ab-what-from-scratch-means-level-1-using-an-agent-framework",
+        "label": "Framework-Based Agents",
+        "children": [
+          {
+            "id": "ab-what-from-scratch-means-level-1-using-an-agent-framework-langchain",
+            "label": "LangChain"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-1-using-an-agent-framework-langgraph",
+            "label": "LangGraph"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-1-using-an-agent-framework-openai-agents-sdk",
+            "label": "OpenAI Agents SDK"
+          }
+        ]
+      },
+      {
+        "id": "ab-what-from-scratch-means-level-2-building-an-agent-runtime-yourself",
+        "label": "Custom Agent Runtimes",
+        "children": [
+          {
+            "id": "ab-what-from-scratch-means-level-2-building-an-agent-runtime-yourself-tool-loop",
+            "label": "Tool loop"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-2-building-an-agent-runtime-yourself-message-management",
+            "label": "Message management"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-2-building-an-agent-runtime-yourself-execution-rules",
+            "label": "Execution rules"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-2-building-an-agent-runtime-yourself-state",
+            "label": "State"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-2-building-an-agent-runtime-yourself-error-handling",
+            "label": "Error handling"
+          }
+        ]
+      },
+      {
+        "id": "ab-what-from-scratch-means-level-3-building-the-underlying-model",
+        "label": "Foundation Model Development",
+        "children": [
+          {
+            "id": "ab-what-from-scratch-means-level-3-building-the-underlying-model-machine-learning",
+            "label": "Machine learning"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-3-building-the-underlying-model-neural-networks",
+            "label": "Neural networks"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-3-building-the-underlying-model-tokenization",
+            "label": "Tokenization"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-3-building-the-underlying-model-training",
+            "label": "Training"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-3-building-the-underlying-model-inference",
+            "label": "Inference"
+          },
+          {
+            "id": "ab-what-from-scratch-means-level-3-building-the-underlying-model-model-architecture",
+            "label": "Model architecture"
+          }
+        ]
+      },
+      {
+        "id": "ab-what-from-scratch-means-start-here-level-2",
+        "label": "Recommended Starting Point"
+      }
+    ]
+  },
+  {
+    "id": "ab-anatomy-of-an-agent",
+    "label": "Agent Architecture",
+    "number": "02",
+    "children": [
+      {
+        "id": "ab-anatomy-of-an-agent-input-user-gives-a-goal",
+        "label": "Goal Input"
+      },
+      {
+        "id": "ab-anatomy-of-an-agent-model-evaluate-goal-choose-next-action",
+        "label": "Model Reasoning and Action Selection"
+      },
+      {
+        "id": "ab-anatomy-of-an-agent-tool-execution-search-read-calculate-write",
+        "label": "Tool Execution"
+      },
+      {
+        "id": "ab-anatomy-of-an-agent-state-context-history-results-stored-data",
+        "label": "State and Context"
+      },
+      {
+        "id": "ab-anatomy-of-an-agent-observe-results-and-decide-again",
+        "label": "Observation and Re-evaluation"
+      },
+      {
+        "id": "ab-anatomy-of-an-agent-repeat-until-stopping-condition",
+        "label": "Stopping Conditions"
+      },
+      {
+        "id": "ab-anatomy-of-an-agent-output-final-answer-or-completed-action",
+        "label": "Output and Completion"
+      },
+      {
+        "id": "ab-anatomy-of-an-agent-function-calling-cycle",
+        "label": "The Function-Calling Cycle"
+      }
+    ]
+  },
+  {
+    "id": "ab-components-you-write-yourself",
+    "label": "Core Runtime Components",
+    "number": "03",
+    "children": [
+      {
+        "id": "ab-components-you-write-yourself-model-client",
+        "label": "Model client"
+      },
+      {
+        "id": "ab-components-you-write-yourself-instructions",
+        "label": "Instructions"
+      },
+      {
+        "id": "ab-components-you-write-yourself-tool-registry",
+        "label": "Tool registry"
+      },
+      {
+        "id": "ab-components-you-write-yourself-execution-loop",
+        "label": "Execution loop"
+      },
+      {
+        "id": "ab-components-you-write-yourself-context-management",
+        "label": "Context management"
+      },
+      {
+        "id": "ab-components-you-write-yourself-memory",
+        "label": "Memory"
+      },
+      {
+        "id": "ab-components-you-write-yourself-guardrails",
+        "label": "Guardrails"
+      },
+      {
+        "id": "ab-components-you-write-yourself-observability",
+        "label": "Observability"
+      }
+    ]
+  },
+  {
+    "id": "ab-first-build-tiny-research-agent",
+    "label": "Project I: Research Agent",
+    "number": "04",
+    "children": [
+      {
+        "id": "ab-first-build-tiny-research-agent-typescript-node-js-in-the-terminal",
+        "label": "Environment Setup: TypeScript and Node.js"
+      },
+      {
+        "id": "ab-first-build-tiny-research-agent-capabilities",
+        "label": "Core Capabilities",
+        "children": [
+          {
+            "id": "ab-first-build-tiny-research-agent-capabilities-search",
+            "label": "Search"
+          },
+          {
+            "id": "ab-first-build-tiny-research-agent-capabilities-retrieve-a-page",
+            "label": "Retrieve a page"
+          },
+          {
+            "id": "ab-first-build-tiny-research-agent-capabilities-save-a-note",
+            "label": "Save a note"
+          }
+        ]
+      },
+      {
+        "id": "ab-first-build-tiny-research-agent-then-add",
+        "label": "Extensions",
+        "children": [
+          {
+            "id": "ab-first-build-tiny-research-agent-then-add-memory",
+            "label": "Memory"
+          },
+          {
+            "id": "ab-first-build-tiny-research-agent-then-add-scheduled-execution",
+            "label": "Scheduled execution"
+          },
+          {
+            "id": "ab-first-build-tiny-research-agent-then-add-database",
+            "label": "Database"
+          },
+          {
+            "id": "ab-first-build-tiny-research-agent-then-add-ui",
+            "label": "UI"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ab-levels-of-control",
+    "label": "Autonomy and Control",
+    "number": "05",
+    "children": [
+      {
+        "id": "ab-levels-of-control-ai-powered-function",
+        "label": "AI-powered function"
+      },
+      {
+        "id": "ab-levels-of-control-ai-workflow",
+        "label": "AI workflow"
+      },
+      {
+        "id": "ab-levels-of-control-ai-agent",
+        "label": "AI agent"
+      },
+      {
+        "id": "ab-levels-of-control-autonomous-operation",
+        "label": "Autonomous operation"
+      },
+      {
+        "id": "ab-levels-of-control-workflow-vs-agent-reliability",
+        "label": "Reliability: Workflows vs. Agents"
+      }
+    ]
+  },
+  {
+    "id": "ab-two-parallel-tracks",
+    "label": "Agent Cognition and Agent Operations",
+    "number": "06",
+    "children": [
+      {
+        "id": "ab-two-parallel-tracks-how-an-agent-thinks-and-acts",
+        "label": "Agent Cognition",
+        "children": [
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-thinks-and-acts-models",
+            "label": "Models"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-thinks-and-acts-prompts",
+            "label": "Prompts"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-thinks-and-acts-tools",
+            "label": "Tools"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-thinks-and-acts-context",
+            "label": "Context"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-thinks-and-acts-decision-making",
+            "label": "Decision-making"
+          }
+        ]
+      },
+      {
+        "id": "ab-two-parallel-tracks-how-an-agent-operates-as-software",
+        "label": "Agent Operations",
+        "children": [
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-operates-as-software-apis",
+            "label": "APIs"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-operates-as-software-runtimes",
+            "label": "Runtimes"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-operates-as-software-asynchronous-execution",
+            "label": "Asynchronous execution"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-operates-as-software-databases",
+            "label": "Databases"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-operates-as-software-security",
+            "label": "Security"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-operates-as-software-deployment",
+            "label": "Deployment"
+          },
+          {
+            "id": "ab-two-parallel-tracks-how-an-agent-operates-as-software-scheduling",
+            "label": "Scheduling"
+          }
+        ]
+      }
+    ]
+  }
+]

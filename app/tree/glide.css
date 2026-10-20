@@ -1,0 +1,812 @@
+/* Glide, scoped for Onwend's /tree page.
+   Generated from ~/Developer/Tools/glide/src/index.css: every selector sits
+   under .glide so nothing leaks into the rest of the site, and dark mode
+   follows Onwend's data-theme toggle. */
+
+.glide {
+  --bg: #fafafa;
+  --fg: #171717;
+  --muted: #737373;
+  --border: rgb(23 23 23 / 0.08);
+  --highlight: rgb(0 0 0 / 0.04);
+  --selected: rgb(0 0 0 / 0.06);
+  --code-bg: rgb(0 0 0 / 0.03);
+  --accent: #6b97ff;
+  --math: #e5484d;
+
+  /* Inspector: Figma's ruler yellow */
+  --inspect: #ffbe0a;
+  --inspect-fill: rgb(255 229 157 / 0.55); /* #FFE59D */
+  --inspect-ink: #1d1d1d;
+  --ruler: 22px;
+  --inspect-pad: rgb(34 197 94 / 0.16);
+  --inspect-gap: #22a55a;
+
+  --radius-card: 12px;
+  --radius-item: 8px;
+
+  --sans: var(--font-inter), Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: var(--font-geist-mono), "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  color-scheme: light;
+  font: 14px/1.5 var(--sans);
+  font-feature-settings: "cv11", "ss01";
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .glide {
+    color-scheme: dark;
+      --bg: #0a0a0a;
+      --fg: #ededed;
+      --muted: #a1a1a1;
+      --border: rgb(255 255 255 / 0.09);
+      --highlight: rgb(255 255 255 / 0.06);
+      --selected: rgb(255 255 255 / 0.09);
+      --code-bg: rgb(255 255 255 / 0.03);
+      --math: #ff6369;
+      --inspect-fill: rgb(255 190 10 / 0.16);
+      --inspect-pad: rgb(34 197 94 / 0.2);
+      --inspect-gap: #3ecf7a;
+  
+  }
+}
+
+:root[data-theme="dark"] .glide {
+  color-scheme: dark;
+    --bg: #0a0a0a;
+    --fg: #ededed;
+    --muted: #a1a1a1;
+    --border: rgb(255 255 255 / 0.09);
+    --highlight: rgb(255 255 255 / 0.06);
+    --selected: rgb(255 255 255 / 0.09);
+    --code-bg: rgb(255 255 255 / 0.03);
+    --math: #ff6369;
+    --inspect-fill: rgb(255 190 10 / 0.16);
+    --inspect-pad: rgb(34 197 94 / 0.2);
+    --inspect-gap: #3ecf7a;
+  
+}
+
+.glide * {
+  box-sizing: border-box;
+}
+
+.glide {
+  min-height: 100svh;
+  background: var(--bg);
+}
+
+/* Same column as the Onwend homepage (.studio-shell): 420px, centered,
+   with 24px sides on phones and 20px on the smallest ones. */
+.glide main {
+  width: min(420px, calc(100% - 48px));
+  margin-inline: auto;
+  padding: 64px 0 96px;
+}
+
+@media (max-width: 640px) {
+  .glide main {
+    width: auto;
+    margin-inline: 0;
+    padding: 56px 24px 80px;
+  }
+}
+
+@media (max-width: 360px) {
+  .glide main {
+    padding-inline: 20px;
+  }
+}
+
+.glide h1,
+.glide h2,
+.glide h3 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.glide h1 {
+  font-size: 30px;
+}
+
+.glide h2 {
+  font-size: 18px;
+}
+
+.glide h3 {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 24px 0 10px;
+}
+
+.glide p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+.glide a {
+  color: inherit;
+}
+
+.glide code {
+  font: 12px var(--mono);
+  color: var(--fg);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 1px 4px;
+}
+
+.glide .page-header {
+  padding-bottom: 28px;
+}
+
+.glide .back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 28px;
+  /* Pull left so the arrow lines up with the text below, not the button's edge. */
+  margin: 0 0 20px -8px;
+  padding: 0 10px 0 6px;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: var(--radius-item);
+  transition: background-color 0.08s ease-out, color 0.08s ease-out;
+}
+
+.glide .back-button:hover {
+  color: var(--fg);
+  background: var(--highlight);
+}
+
+.glide .back-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.glide .footnote {
+  margin-top: 64px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.glide .footnote p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+/* Settings bar */
+
+.glide .controls {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 20px;
+  padding: 8px 12px 8px 8px;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  /* Fill the 12px above the bar, so content doesn't show through as it scrolls. */
+  box-shadow: 0 -13px 0 var(--bg);
+}
+
+.glide .segmented {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 10px;
+  background: var(--selected);
+}
+
+.glide .segmented button {
+  font: inherit;
+  font-size: 13px;
+  height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--radius-item);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.glide .segmented button[aria-checked="true"] {
+  background: var(--bg);
+  color: var(--fg);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08), 0 0 0 1px var(--border);
+}
+
+/* Switch */
+
+.glide .switch-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.glide .switch {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.14);
+  cursor: pointer;
+  transition: background-color 0.16s ease-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .glide .switch {
+      background: rgb(255 255 255 / 0.18);
+  
+  }
+}
+
+:root[data-theme="dark"] .glide .switch {
+    background: rgb(255 255 255 / 0.18);
+  
+}
+
+.glide .switch[aria-checked="true"] {
+  background: var(--accent);
+}
+
+.glide .switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+  transition: transform 0.16s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glide .switch[aria-checked="true"] .switch-thumb {
+  transform: translateX(14px);
+}
+
+.glide .switch:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Sections */
+
+.glide section {
+  padding-top: 56px;
+}
+
+.glide section > p {
+  margin-bottom: 16px;
+}
+
+/* Preview card */
+
+.glide .preview {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.glide .preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px 8px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.glide .tabs {
+  position: relative;
+  display: flex;
+  gap: 2px;
+}
+
+.glide .tab {
+  position: relative;
+  z-index: 1;
+  height: 30px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-item);
+  cursor: pointer;
+}
+
+.glide .tab[aria-selected="true"] {
+  color: var(--fg);
+  background: var(--selected);
+}
+
+.glide .tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.glide .preview-body {
+  position: relative;
+  /* 28px on the left leaves room for Inspect's vertical ruler. */
+  padding: 36px 20px 24px 28px;
+}
+
+.glide .preview-code {
+  margin: 0;
+  padding: 20px;
+  overflow-x: auto;
+  font: 12px/1.65 var(--mono);
+  background: var(--code-bg);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+}
+
+.glide .preview-code code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+/* At 420px there's no room side by side, so the versions stack. */
+.glide .columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.glide .column {
+  margin: 0;
+  min-width: 0;
+}
+
+.glide .column figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 6px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.glide .column-title {
+  font-weight: 500;
+}
+
+.glide .column-note {
+  color: var(--muted);
+}
+
+.glide .notes {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+.glide .notes li + li {
+  margin-top: 10px;
+}
+
+.glide .notes strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* The demo container. It must be position: relative, because the highlight is
+   absolutely positioned at 0,0 inside it and then moved with a transform. */
+
+.glide .demo {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 8px;
+}
+
+.glide .demo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.glide .demo-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  overflow-x: auto;
+}
+
+.glide .demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.glide .item {
+  /* Above the highlight. */
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 36px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  color: var(--fg);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-item);
+  cursor: pointer;
+}
+
+.glide .item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.glide .item:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.glide .demo-tabs .item {
+  min-height: 32px;
+  white-space: nowrap;
+}
+
+.glide .demo-grid .item {
+  padding: 12px;
+}
+
+.glide .demo-grid .item-label {
+  font-weight: 500;
+}
+
+.glide .item-description {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* The only thing plain :hover does. */
+
+.glide .demo[data-engine="plain"] .item:hover {
+  background: var(--highlight);
+}
+
+/* The highlight: one element, pinned to the container's top-left corner,
+   moved with transform and sized with width/height. */
+
+.glide .highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--highlight);
+  border-radius: var(--radius-item);
+  opacity: 0;
+  will-change: transform;
+}
+
+/* The hand-written version fades with a CSS transition. motion handles its
+   own opacity. */
+
+.glide [data-engine="spring"] > .highlight,
+.glide .tabs > .highlight {
+  transition: opacity var(--fade, 0.08s) ease-out;
+}
+
+.glide [data-engine="spring"] > .highlight[data-visible],
+.glide .tabs > .highlight[data-visible] {
+  opacity: 1;
+}
+
+/* Show the math */
+
+.glide .math {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.glide .math-box {
+  position: absolute;
+  border-radius: var(--radius-item);
+  outline: 1px dashed color-mix(in srgb, var(--math) 40%, transparent);
+  outline-offset: -1px;
+}
+
+.glide .math-line {
+  position: absolute;
+}
+
+.glide .math-line-y {
+  left: 0;
+  right: 0;
+  border-top: 1px dashed var(--math);
+}
+
+.glide .math-line-x {
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed var(--math);
+}
+
+.glide .math-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  border: 1px solid var(--math);
+  background: var(--bg);
+}
+
+.glide .math-dot[data-active] {
+  background: var(--math);
+}
+
+.glide .math-dot[data-skipped] {
+  border-style: dashed;
+  opacity: 0.4;
+}
+
+/* Inspect */
+
+/* No z-index on the inspector itself, so its parts can sit at different
+   depths: fills under the item text (items are z-index 1), rulers and the
+   label over everything. */
+
+.glide .inspector {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  font: 10px/1 var(--mono);
+  color: var(--inspect);
+}
+
+.glide .ruler {
+  position: absolute;
+  z-index: 3;
+  overflow: hidden;
+  font: 500 10px/1 var(--mono);
+}
+
+.glide .ruler-x {
+  top: 0;
+  left: var(--ruler);
+  right: 0;
+  height: var(--ruler);
+}
+
+.glide .ruler-y {
+  top: var(--ruler);
+  left: 0;
+  bottom: 0;
+  width: var(--ruler);
+}
+
+/* Ticks and numbers are positioned in preview coordinates, so they're
+   shifted back by the ruler's own offset. The baseline is the inner edge. */
+
+.glide .ruler-x::after,
+.glide .ruler-y::after {
+  content: "";
+  position: absolute;
+  background: var(--inspect);
+}
+
+.glide .ruler-x::after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+}
+
+.glide .ruler-y::after {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+}
+
+.glide .tick {
+  position: absolute;
+  background: var(--inspect);
+  opacity: 0.6;
+}
+
+.glide .ruler-x .tick {
+  bottom: 0;
+  width: 1px;
+  height: 4px;
+  margin-left: calc(-1 * var(--ruler));
+}
+
+.glide .ruler-y .tick {
+  right: 0;
+  height: 1px;
+  width: 4px;
+  margin-top: calc(-1 * var(--ruler));
+}
+
+.glide .ruler-x .tick-major {
+  height: 8px;
+  opacity: 1;
+}
+
+.glide .ruler-y .tick-major {
+  width: 8px;
+  opacity: 1;
+}
+
+.glide .ruler-number {
+  position: absolute;
+  color: var(--inspect);
+}
+
+.glide .ruler-x .ruler-number {
+  top: 2px;
+  margin-left: calc(-1 * var(--ruler));
+  transform: translateX(-50%);
+}
+
+.glide .ruler-y .ruler-number {
+  left: 1px;
+  margin-top: calc(-1 * var(--ruler));
+  transform: translateY(-100%);
+  font-size: 9px;
+}
+
+.glide .ruler-band {
+  position: absolute;
+  z-index: 3;
+  background: rgb(255 190 10 / 0.14);
+  border: 0 solid var(--inspect);
+}
+
+.glide .ruler-band-x {
+  top: 0;
+  height: var(--ruler);
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.glide .ruler-band-y {
+  left: 0;
+  width: var(--ruler);
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.glide .inspect-box {
+  position: absolute;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--inspect);
+}
+
+.glide .inspect-pad {
+  position: absolute;
+  background: var(--inspect-pad);
+}
+
+.glide .inspect-child {
+  position: absolute;
+  z-index: 0;
+  background: var(--inspect-fill);
+  outline: 1px solid color-mix(in srgb, var(--inspect) 55%, transparent);
+  outline-offset: -0.5px;
+}
+
+.glide .inspect-gap {
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--inspect-gap) 25%, transparent) 0 1px,
+    transparent 1px 4px
+  );
+  color: var(--inspect-gap);
+}
+
+.glide .inspect-gap-y {
+  border-block: 1px dashed var(--inspect-gap);
+}
+
+.glide .inspect-gap-x {
+  border-inline: 1px dashed var(--inspect-gap);
+}
+
+.glide .inspect-gap span {
+  font-size: 9px;
+  padding: 0 3px;
+  background: var(--bg);
+  border-radius: 3px;
+  line-height: 1.2;
+}
+
+.glide .inspect-label {
+  position: absolute;
+  z-index: 4;
+  transform: translateY(-100%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  width: max-content;
+  max-width: 220px;
+  color: #efefef;
+  background: var(--inspect-ink);
+  border-radius: var(--radius-item);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.18);
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.glide .inspect-tag {
+  color: var(--inspect);
+  text-transform: uppercase;
+}
+
+/* Trial padding/gap colors for the inspector, one per column in
+   "Blink or glide". The inspector picks these up from the hovered element. */
+
+.glide [data-swatch="pink"] {
+  --swatch-gap: #f2479b;
+  --swatch-pad: rgb(242 71 155 / 0.14);
+}
+
+.glide [data-swatch="violet"] {
+  --swatch-gap: #8b5cf6;
+  --swatch-pad: rgb(139 92 246 / 0.14);
+}
+
+.glide [data-swatch="coral"] {
+  --swatch-gap: #ff6b4a;
+  --swatch-pad: rgb(255 107 74 / 0.16);
+}
+
+.glide .swatch-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  margin-top: 4px;
+  font: 11px var(--mono);
+  color: var(--muted);
+}
+
+.glide .swatch-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--swatch-gap);
+}

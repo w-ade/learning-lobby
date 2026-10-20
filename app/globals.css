@@ -1,0 +1,492 @@
+:root {
+  color-scheme: light;
+  --ink: #18181b;
+  --ink-2: #52525b;
+  --bg: #f5f5f5;
+  --page-bg: #fbfbfb;
+  --logo-filter: none;
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ink: #f0f0f2;
+    --ink-2: #a3a3ab;
+    --bg: #0e0e10;
+    --page-bg: #131315;
+    --logo-filter: invert(1);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #f0f0f2;
+  --ink-2: #a3a3ab;
+  --bg: #0e0e10;
+  --page-bg: #131315;
+  --logo-filter: invert(1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100svh;
+  /* ease the recolor if the device flips light/dark while open */
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* visually hidden but available to assistive tech + SEO */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── home page ──────────────────────────────────────────────── */
+.studio-home {
+  --studio-bg: #ffffff;
+  --studio-ink: #111113;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--studio-bg);
+  color: var(--studio-ink);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .studio-home {
+    --studio-bg: #0e0e10;
+    --studio-ink: #f0f0f2;
+  }
+}
+
+html:has(.studio-home),
+body:has(.studio-home) {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+.studio-shell {
+  width: min(420px, calc(100% - 48px));
+  margin-left: 28px;
+  margin-right: 0;
+  padding-top: clamp(160px, 26.73vh, 232px);
+  padding-bottom: 80px;
+}
+
+.studio-wordmark {
+  margin: 0;
+  color: var(--studio-ink);
+  line-height: 0;
+}
+
+.studio-wordmark svg {
+  display: block;
+  width: 104px;
+  height: auto;
+}
+
+.studio-statement {
+  margin-top: 104px;
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.006em;
+}
+
+.studio-statement p + p {
+  margin-top: 25px;
+}
+
+.studio-statement strong {
+  color: var(--studio-ink);
+  font-weight: 700;
+}
+
+.studio-statement em {
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .studio-home {
+    overflow: visible;
+  }
+
+  .studio-shell {
+    width: auto;
+    margin-inline: 0;
+    padding: max(64px, calc(env(safe-area-inset-top) + 40px)) 24px
+      max(56px, calc(env(safe-area-inset-bottom) + 32px));
+  }
+
+  .studio-statement {
+    margin-top: 68px;
+    font-size: 14px;
+    line-height: 1.45;
+    letter-spacing: -0.008em;
+  }
+
+  .studio-statement p + p {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .studio-shell {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .studio-statement {
+    margin-top: 56px;
+    font-size: 13.5px;
+  }
+}
+
+/* ── theme toggle ───────────────────────────────────────────── */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  border-radius: 999px;
+  background: var(--page-bg);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.25s ease,
+    color 0.25s ease;
+}
+.theme-toggle:hover {
+  border-color: color-mix(in srgb, var(--ink) 35%, transparent);
+}
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+.theme-toggle .sun {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle .moon {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle .sun {
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .moon {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .theme-toggle .sun {
+    display: block;
+  }
+}
+
+/* ── presentation slide ─────────────────────────────────────── */
+body:has(.slide) {
+  background: #fbfbfb;
+  overflow-x: hidden; /* safety: never let the rig create sideways scroll */
+}
+.slide {
+  position: relative;
+  min-height: 100svh;
+  background: #fbfbfb;
+  color: #181818;
+  /* vertical air stays generous; horizontal padding shrinks on phones so the
+     mark gets more width (vertical · horizontal) */
+  padding: clamp(24px, 4vw, 56px) clamp(12px, 4vw, 56px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.slide-head {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(28px, 6vw, 90px);
+  font-family: var(--font-inter), Helvetica, Arial, sans-serif;
+}
+.slide-head .lbl {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.slide-head .k {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #181818;
+}
+.slide-head .v {
+  font-size: 11px;
+  font-weight: 400;
+  color: #a0a0a0;
+}
+.slide-head .pageno {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 400;
+  color: #8c8c87;
+  font-variant-numeric: tabular-nums;
+}
+.slide-mark {
+  display: grid;
+  place-items: center;
+  min-width: 0; /* let the grid item shrink instead of overflowing the column */
+  overflow: hidden; /* clip any rig spill so it can't create sideways scroll */
+}
+.wm-grid {
+  width: min(540px, 86vw);
+  height: auto;
+  display: block;
+}
+/* the editable rig svg fills its gridded square */
+.wm-rig {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.markwrap {
+  position: relative;
+  display: inline-block;
+}
+.markwrap .tm {
+  position: absolute;
+  top: -2px;
+  right: -20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #3a3a36;
+}
+/* shrink + recenter the existing Figma-frame mark for the slide */
+.slide-mark .hero-editor {
+  margin: 0;
+}
+.slide-mark .hero-editor-svg {
+  /* fill most of the width on phones, capped on desktop */
+  width: clamp(300px, 90vw, 460px);
+}
+.slide-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 76%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  font-family: var(--font-inter), Helvetica, Arial, sans-serif;
+}
+.enter-lock {
+  display: inline-flex;
+  line-height: 0;
+}
+.slide-cap .enter-btn {
+  font-family: var(--font-inter), Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #181818;
+  background: none;
+  padding: 8px 20px;
+  border: 1px solid #d8d8d8;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease;
+}
+.slide-cap .enter-btn:hover {
+  border-color: #181818;
+}
+.slide-cap .dot {
+  margin: 0 0.5em;
+}
+
+/* page shell — single centered, viewport-safe column */
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-content: center;
+  min-height: 100svh;
+  padding: clamp(24px, 6vw, 40px);
+}
+
+/* dictionary definition */
+.def {
+  font-family: var(--font-news), Georgia, "Times New Roman", serif;
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+}
+.def .lede {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.5;
+  color: var(--ink);
+}
+.def .head {
+  font-weight: 600;
+}
+.def .pos {
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+/* the definition enacts the word: each sense resolves out of a blur, in turn */
+.reveal {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(0.5em);
+  animation: settle 0.85s var(--ease-out-expo) forwards;
+}
+.reveal:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.reveal:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.reveal:nth-child(3) {
+  animation-delay: 0.66s;
+}
+.reveal:nth-child(4) {
+  animation-delay: 0.82s;
+}
+.reveal:nth-child(5) {
+  animation-delay: 0.98s;
+}
+.reveal:nth-child(6) {
+  animation-delay: 1.14s;
+}
+
+@keyframes settle {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* fixed footer */
+.foot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* keep clear of the iOS home indicator / notch */
+  padding: 22px 28px calc(22px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: rise 0.8s var(--ease-out-cubic) 1.45s forwards;
+}
+.foot .loc {
+  display: block;
+  width: 100%;
+  color: var(--ink);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  line-height: 2;
+  text-transform: uppercase;
+}
+.foot .dot {
+  margin: 0 0.5em;
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── editable vector hero (Figma-frame wordmark) ───────────────── */
+.hero-editor {
+  display: grid;
+  place-items: center;
+  /* the W×H badge hangs ~48px below the frame (absolute), so the gap must clear
+     it before the definition — was too tight on mobile */
+  margin-bottom: clamp(72px, 9vw, 84px);
+}
+.hero-editor-svg {
+  width: min(500px, 84vw);
+  max-width: 100%;
+  /* desktop: a tighter box. The svg fits-by-width + top-aligns (see EditorHero
+     preserveAspectRatio), so this ratio just sets how much room opens up below. */
+  aspect-ratio: 160 / 175;
+  height: auto;
+}
+/* phones: a much taller box → the mark rides up with lots of room below it */
+@media (max-width: 680px) {
+  .hero-editor-svg {
+    aspect-ratio: 160 / 245;
+  }
+}
+
+/* ── blueprint canvas — black vector rig on the light page ──────── */
+.blueprint {
+  background: transparent;
+  max-width: 100%;
+}
+
+/* selection-frame intro chrome */
+@keyframes bbox-open {
+  0% { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes bbox-handle {
+  0% { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes bbox-badge {
+  0% { opacity: 0; transform: translate(-50%) scale(0); }
+  to { opacity: 1; transform: translate(-50%) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .foot {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}

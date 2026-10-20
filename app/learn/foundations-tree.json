@@ -1,0 +1,450 @@
+[
+  {
+    "id": "tf-01",
+    "label": "Computing",
+    "number": "01",
+    "children": [
+      {
+        "id": "tf-01-computer-architecture",
+        "label": "Computer architecture"
+      },
+      {
+        "id": "tf-01-cpu",
+        "label": "CPU"
+      },
+      {
+        "id": "tf-01-memory",
+        "label": "memory"
+      },
+      {
+        "id": "tf-01-storage",
+        "label": "storage"
+      },
+      {
+        "id": "tf-01-binary",
+        "label": "binary"
+      },
+      {
+        "id": "tf-01-operating-system-fundamentals",
+        "label": "operating system fundamentals"
+      },
+      {
+        "id": "tf-01-processes",
+        "label": "processes"
+      },
+      {
+        "id": "tf-01-filesystems",
+        "label": "filesystems"
+      },
+      {
+        "id": "tf-01-terminals",
+        "label": "terminals"
+      }
+    ]
+  },
+  {
+    "id": "tf-02",
+    "label": "Computer Science",
+    "number": "02",
+    "children": [
+      {
+        "id": "tf-02-programming-fundamentals",
+        "label": "Programming fundamentals"
+      },
+      {
+        "id": "tf-02-discrete-mathematics",
+        "label": "discrete mathematics"
+      },
+      {
+        "id": "tf-02-data-structures",
+        "label": "data structures"
+      },
+      {
+        "id": "tf-02-algorithms",
+        "label": "algorithms"
+      },
+      {
+        "id": "tf-02-complexity",
+        "label": "complexity"
+      },
+      {
+        "id": "tf-02-computational-models",
+        "label": "computational models"
+      }
+    ]
+  },
+  {
+    "id": "tf-03",
+    "label": "Software Engineering",
+    "number": "03",
+    "children": [
+      {
+        "id": "tf-03-programming-languages",
+        "label": "Programming languages"
+      },
+      {
+        "id": "tf-03-software-architecture",
+        "label": "software architecture"
+      },
+      {
+        "id": "tf-03-frontend",
+        "label": "frontend"
+      },
+      {
+        "id": "tf-03-backend",
+        "label": "backend"
+      },
+      {
+        "id": "tf-03-apis",
+        "label": "APIs"
+      },
+      {
+        "id": "tf-03-testing",
+        "label": "testing"
+      },
+      {
+        "id": "tf-03-debugging",
+        "label": "debugging"
+      },
+      {
+        "id": "tf-03-version-control",
+        "label": "version control"
+      },
+      {
+        "id": "tf-03-deployment",
+        "label": "deployment"
+      }
+    ]
+  },
+  {
+    "id": "tf-04",
+    "label": "Systems & Infrastructure",
+    "number": "04",
+    "children": [
+      {
+        "id": "tf-04-networking",
+        "label": "Networking"
+      },
+      {
+        "id": "tf-04-operating-system-administration",
+        "label": "operating system administration"
+      },
+      {
+        "id": "tf-04-hardware-diagnostics",
+        "label": "hardware diagnostics"
+      },
+      {
+        "id": "tf-04-security",
+        "label": "security"
+      },
+      {
+        "id": "tf-04-identity",
+        "label": "identity"
+      },
+      {
+        "id": "tf-04-endpoint-management",
+        "label": "endpoint management"
+      },
+      {
+        "id": "tf-04-cloud-infrastructure",
+        "label": "cloud infrastructure"
+      },
+      {
+        "id": "tf-04-reliability",
+        "label": "reliability"
+      }
+    ]
+  },
+  {
+    "id": "tf-05",
+    "label": "Data",
+    "number": "05",
+    "children": [
+      {
+        "id": "tf-05-data-modeling",
+        "label": "Data modeling"
+      },
+      {
+        "id": "tf-05-relational-databases",
+        "label": "relational databases"
+      },
+      {
+        "id": "tf-05-sql",
+        "label": "SQL"
+      },
+      {
+        "id": "tf-05-postgresql",
+        "label": "PostgreSQL"
+      },
+      {
+        "id": "tf-05-indexing",
+        "label": "indexing"
+      },
+      {
+        "id": "tf-05-data-pipelines",
+        "label": "data pipelines"
+      },
+      {
+        "id": "tf-05-search",
+        "label": "search"
+      },
+      {
+        "id": "tf-05-distributed-data-systems",
+        "label": "distributed data systems"
+      }
+    ]
+  },
+  {
+    "id": "tf-06",
+    "label": "Design",
+    "number": "06",
+    "children": [
+      {
+        "id": "tf-06-interaction-design",
+        "label": "Interaction design"
+      },
+      {
+        "id": "tf-06-visual-design",
+        "label": "visual design"
+      },
+      {
+        "id": "tf-06-typography",
+        "label": "typography"
+      },
+      {
+        "id": "tf-06-information-architecture",
+        "label": "information architecture"
+      },
+      {
+        "id": "tf-06-accessibility",
+        "label": "accessibility"
+      },
+      {
+        "id": "tf-06-prototyping",
+        "label": "prototyping"
+      },
+      {
+        "id": "tf-06-design-systems",
+        "label": "design systems"
+      },
+      {
+        "id": "tf-06-research",
+        "label": "research"
+      }
+    ]
+  },
+  {
+    "id": "tf-07",
+    "label": "Artificial Intelligence",
+    "number": "07",
+    "children": [
+      {
+        "id": "tf-07-machine-learning",
+        "label": "Machine learning"
+      },
+      {
+        "id": "tf-07-neural-networks",
+        "label": "neural networks"
+      },
+      {
+        "id": "tf-07-language-models",
+        "label": "language models"
+      },
+      {
+        "id": "tf-07-embeddings",
+        "label": "embeddings"
+      },
+      {
+        "id": "tf-07-retrieval",
+        "label": "retrieval"
+      },
+      {
+        "id": "tf-07-inference",
+        "label": "inference"
+      },
+      {
+        "id": "tf-07-agents",
+        "label": "agents"
+      },
+      {
+        "id": "tf-07-evaluation",
+        "label": "evaluation"
+      },
+      {
+        "id": "tf-07-ai-systems-engineering",
+        "label": "AI systems engineering"
+      }
+    ]
+  },
+  {
+    "id": "tf-08",
+    "label": "Platforms & Ecosystems",
+    "number": "08",
+    "children": [
+      {
+        "id": "tf-08-apple",
+        "label": "Apple",
+        "children": [
+          {
+            "id": "tf-08-apple-swift",
+            "label": "Swift"
+          },
+          {
+            "id": "tf-08-apple-swiftui",
+            "label": "SwiftUI"
+          },
+          {
+            "id": "tf-08-apple-uikit",
+            "label": "UIKit"
+          },
+          {
+            "id": "tf-08-apple-appkit",
+            "label": "AppKit"
+          },
+          {
+            "id": "tf-08-apple-macos",
+            "label": "macOS"
+          },
+          {
+            "id": "tf-08-apple-ios",
+            "label": "iOS"
+          },
+          {
+            "id": "tf-08-apple-xcode",
+            "label": "Xcode"
+          }
+        ]
+      },
+      {
+        "id": "tf-08-windows",
+        "label": "Windows",
+        "children": [
+          {
+            "id": "tf-08-windows-windows-architecture",
+            "label": "Windows architecture"
+          },
+          {
+            "id": "tf-08-windows-winui",
+            "label": "WinUI"
+          },
+          {
+            "id": "tf-08-windows-net",
+            "label": ".NET"
+          },
+          {
+            "id": "tf-08-windows-c",
+            "label": "C#"
+          },
+          {
+            "id": "tf-08-windows-administration",
+            "label": "administration"
+          }
+        ]
+      },
+      {
+        "id": "tf-08-web",
+        "label": "Web",
+        "children": [
+          {
+            "id": "tf-08-web-html",
+            "label": "HTML"
+          },
+          {
+            "id": "tf-08-web-css",
+            "label": "CSS"
+          },
+          {
+            "id": "tf-08-web-javascript",
+            "label": "JavaScript"
+          },
+          {
+            "id": "tf-08-web-typescript",
+            "label": "TypeScript"
+          },
+          {
+            "id": "tf-08-web-react",
+            "label": "React"
+          },
+          {
+            "id": "tf-08-web-next-js",
+            "label": "Next.js"
+          },
+          {
+            "id": "tf-08-web-browsers",
+            "label": "browsers"
+          }
+        ]
+      },
+      {
+        "id": "tf-08-linux",
+        "label": "Linux",
+        "children": [
+          {
+            "id": "tf-08-linux-shell",
+            "label": "Shell"
+          },
+          {
+            "id": "tf-08-linux-processes",
+            "label": "processes"
+          },
+          {
+            "id": "tf-08-linux-permissions",
+            "label": "permissions"
+          },
+          {
+            "id": "tf-08-linux-services",
+            "label": "services"
+          },
+          {
+            "id": "tf-08-linux-system-administration",
+            "label": "system administration"
+          }
+        ]
+      },
+      {
+        "id": "tf-08-cloud",
+        "label": "Cloud",
+        "children": [
+          {
+            "id": "tf-08-cloud-hosting",
+            "label": "Hosting"
+          },
+          {
+            "id": "tf-08-cloud-infrastructure",
+            "label": "infrastructure"
+          },
+          {
+            "id": "tf-08-cloud-networking",
+            "label": "networking"
+          },
+          {
+            "id": "tf-08-cloud-managed-services",
+            "label": "managed services"
+          }
+        ]
+      },
+      {
+        "id": "tf-08-embedded",
+        "label": "Embedded",
+        "children": [
+          {
+            "id": "tf-08-embedded-microcontrollers",
+            "label": "Microcontrollers"
+          },
+          {
+            "id": "tf-08-embedded-firmware",
+            "label": "firmware"
+          },
+          {
+            "id": "tf-08-embedded-sensors",
+            "label": "sensors"
+          },
+          {
+            "id": "tf-08-embedded-hardware-interfaces",
+            "label": "hardware interfaces"
+          }
+        ]
+      }
+    ]
+  }
+]
