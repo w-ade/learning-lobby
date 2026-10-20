@@ -19,3 +19,17 @@ html, body { margin: 0; background: #FFFFFF; }
 .ll-nav { font-size: 12px; color: #6b6b70; text-decoration: none; padding: 6px 10px; border: 1px solid #E0E0E0; border-radius: 8px; align-self: center; }
 .ll-nav:hover { color: #111119; }
 @media (max-width: 900px) { .ll-grid3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .ll-grid3 { grid-template-columns: 1fr; } }
+.ll-bar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 16px; height: 56px; padding: 0 24px; margin: 0 -24px; background: #FFFFFFE6; backdrop-filter: blur(12px); border-bottom: 1px solid #EDEDED; }
+.ll-brand { font-weight: 500; font-size: 15px; color: #111119; text-decoration: none; flex: 1; }
+.ll-seg { display: flex; gap: 2px; padding: 3px; background: #F6F6F5; border-radius: 10px; }
+.ll-seg a { padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; color: #85858A; text-decoration: none; transition: background .15s, color .15s; }
+.ll-seg a:hover { color: #111119; }
+.ll-seg a.on { background: #FFFFFF; color: #111119; box-shadow: 0 1px 2px #0000000F, 0 0 0 0.5px #0000000F; }
+.ll-bar form { flex: 1; display: flex; justify-content: flex-end; }
+.ll-crumbs { display: flex; gap: 8px; padding-top: 20px; font-size: 13px; color: #85858A; }
+.ll-crumbs a { color: #85858A; text-decoration: none; } .ll-crumbs a:hover { color: #557AF7; }
+.ll-crumbs .cur { color: #111119; }
+.ll-title { padding: 8px 0 28px; } .ll-title h1 { margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.01em; } .ll-title p { margin: 6px 0 0; color: #85858A; }
+@media (max-width: 720px) { .ll-bar { padding: 0 16px; margin: 0 -16px; gap: 8px; } .ll-brand { font-size: 14px; } .ll-seg a { padding: 5px 10px; font-size: 12px; } .ll-title h1 { font-size: 22px; } }
+.ll-page { padding-top: 0; }

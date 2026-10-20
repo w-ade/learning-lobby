@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Standard",
+    "tree": [
+      {
+        "id": "standard-1",
+        "label": "Track",
+        "children": [
+          {
+            "id": "standard-2",
+            "label": "Course",
+            "children": [
+              {
+                "id": "standard-3",
+                "label": "Module",
+                "children": [
+                  {
+                    "id": "standard-4",
+                    "label": "Lesson"
+                  },
+                  {
+                    "id": "standard-5",
+                    "label": "Lab / Project"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Minimal",
+    "tree": [
+      {
+        "id": "minimal-1",
+        "label": "Path",
+        "children": [
+          {
+            "id": "minimal-2",
+            "label": "Course",
+            "children": [
+              {
+                "id": "minimal-3",
+                "label": "Unit",
+                "children": [
+                  {
+                    "id": "minimal-4",
+                    "label": "Lesson"
+                  },
+                  {
+                    "id": "minimal-5",
+                    "label": "Lab"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Workshop",
+    "tree": [
+      {
+        "id": "workshop-1",
+        "label": "Bench",
+        "children": [
+          {
+            "id": "workshop-2",
+            "label": "Kit",
+            "children": [
+              {
+                "id": "workshop-3",
+                "label": "Part",
+                "children": [
+                  {
+                    "id": "workshop-4",
+                    "label": "Step"
+                  },
+                  {
+                    "id": "workshop-5",
+                    "label": "Build"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Studio",
+    "tree": [
+      {
+        "id": "studio-1",
+        "label": "Program",
+        "children": [
+          {
+            "id": "studio-2",
+            "label": "Series",
+            "children": [
+              {
+                "id": "studio-3",
+                "label": "Chapter",
+                "children": [
+                  {
+                    "id": "studio-4",
+                    "label": "Session"
+                  },
+                  {
+                    "id": "studio-5",
+                    "label": "Project"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

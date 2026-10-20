@@ -1,2 +1,2 @@
 import { redirect } from "next/navigation";
-export default function S() { redirect("/"); }
+export default function S() { redirect("/planning"); }
