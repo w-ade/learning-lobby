@@ -12,8 +12,9 @@ export default function Login() {
   return (
     <main style={{ minHeight: "100vh", margin: 0, display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#FFFFFF" }}>
       <div style={{ backgroundColor: "#FFFFFF", borderRadius: "20px", border: "1.25px solid #E2E2E4", boxSizing: "border-box", height: "502px", overflow: "hidden", width: "480px", position: "relative", flexShrink: 0, zoom: SCALE }}>
-        <div style={{ ...text, color: "#1423A8", top: "115px" }}>Learning Labs</div>
-        <div style={{ ...text, color: "#BDBDC0", top: "139px" }}>{error ?? "Welcome back"}</div>
+        <div style={{ ...text, top: "16px", color: "#111119", fontWeight: 500, fontSize: "22px", lineHeight: "28px" }}>Learning Labs</div>
+        {error && <div style={{ ...text, top: "46px", color: "#FF3E41" }}>{error}</div>}
+        {/* Animation slot: ~84px to ~420px */}
         <form action={action} style={{ position: "absolute", left: "16px", right: "16px", bottom: "16px", display: "flex", gap: "8px" }}>
           <input name="password" type="password" placeholder="Password" autoFocus required
             style={{ flex: 1, height: "52px", padding: "0 16px", border: "1.25px solid #E2E2E4", borderRadius: "11px", fontFamily: FONT, fontSize: "18px", outline: "none", color: error ? "#FF3E41" : "#111111" }} />
