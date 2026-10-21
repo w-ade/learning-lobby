@@ -7,7 +7,7 @@ import { Header } from "../header";
 
 export default function Track() {
   return <div className="ll-page">
-    <Header title="Running a Company with Agents" sub="Building a business from scratch, with agents woven in where they help." count={businessCourses.length} />
+    <Header title="Build & Run a Business with Agents" sub="Build, launch, and operate a real business from zero, with agents as leverage. Yield is the running case study." count={businessCourses.length} />
     <div className="ll-cols ll-grid3">
       {businessCourses.map((c, n) => <Fragment key={c.t}>{(n === 0 || businessCourses[n - 1].g !== c.g) && <div className="ll-group" style={{ gridColumn: "1/-1" }}>{c.g}</div>}{c.m ? <Link href={"/planning/c/" + codeC(n)} className="ll-card ll-link">
         <span className="ll-icon">{icon(c.i)}</span>

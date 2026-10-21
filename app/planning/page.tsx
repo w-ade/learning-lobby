@@ -7,7 +7,7 @@ import { Header } from "./header";
 const tracks = [
   { href: "/planning/a", label: "Track A", t: "Technical Foundations", d: "The computing, engineering, and platform groundwork everything else is built on.", n: courses.length, i: courses[0].i, bg: "#F2A04A", fg: "#F2A04A" },
   { href: "/planning/b", label: "Track B", t: "Agent Engineering", d: "How agents actually work, from models and tools to loops, memory, safety, and production.", n: agentCourses.length, i: agentCourses[0].i, bg: "#E8C928", fg: "#E8C928" },
-  { href: "/planning/c", label: "Track C", t: "Running a Company with Agents", d: "Building a business from scratch, with agents woven in where they help, from first offer to running Yield.", n: businessCourses.length, i: businessCourses[0].i, bg: "#4CBF6B", fg: "#3FA35B" },
+  { href: "/planning/c", label: "Track C", t: "Build & Run a Business with Agents", d: "Build, launch, and operate a real business from zero, with agents as leverage, not the business model.", n: businessCourses.length, i: businessCourses[0].i, bg: "#4CBF6B", fg: "#3FA35B" },
 ];
 
 export default function Planning() {
