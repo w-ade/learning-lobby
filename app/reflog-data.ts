@@ -4,6 +4,7 @@ export type RefGroup = { group: string; items: Ref[] };
 // Newest first within each group.
 export const reflog: RefGroup[] = [
   { group: "Design & UI", items: [
+    { url: "https://emilkowal.ski/ui/building-an-animation-course", title: "Emil Kowalski — Building an Animation Course", date: "2026-10-21", note: "How Emil built animations.dev; a model for building Learning Lobby as a real course." },
     { url: "https://www.ascii-magic.com/ascii/mind-map", title: "ASCII Magic — Mind Map", date: "2026-10-20", note: "ASCII mind map graphic for the login page (MIT licensed)." },
     { url: "https://onwend.com/learn", title: "onwend — Learn", date: "2026-10-20", note: "Source of the animated course tree Learning Lobby is built on." },
   ]},
