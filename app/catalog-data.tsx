@@ -46,3 +46,18 @@ export const agentCourses = [
 
 export type Mod = [string, string[]];
 export const code = (n: number) => "B" + String(n + 1).padStart(2, "0");
+
+export const businessCourses: { g: string; t: string; d: string; i: string; m?: Mod[] }[] = [
+  { g: "Business Basics", t: "What a Business Actually Is", d: "Value, customers, revenue, costs, and profit, explained plainly from zero.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Business Basics", t: "Finding a Problem Worth Solving", d: "Customer research, spotting real pain, and using agents as research assistants.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Offer and Validation", t: "Making an Offer", d: "Products vs. services, pricing, and positioning what you make.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Offer and Validation", t: "Validating Cheaply", d: "Landing pages, pre-sales, and reading demand signals before you build.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Money and Market", t: "Money Fundamentals", d: "Margins, cash flow, taxes, LLCs, and bookkeeping basics.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Money and Market", t: "Selling and Marketing", d: "Audience, content, SEO, and launches that actually reach people.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Money and Market", t: "Customers and Support", d: "Delivery, feedback, and keeping buyers coming back.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Agents and Operations", t: "Agents as Your Team", d: "What to hand off, routines, review points, and keeping costs down.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Agents and Operations", t: "Systems and Operations", d: "Metrics, automation, monitoring, and what breaks.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Growth", t: "Growing and Compounding", d: "Reinvesting, adding product lines, and Yield as the parent company.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+  { g: "Growth", t: "Capstone: Launch a Yield Product", d: "Ship one real product end to end and review what happened.", i: "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" },
+];
+export const codeC = (n: number) => "C" + String(n + 1).padStart(2, "0");
