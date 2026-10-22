@@ -20,6 +20,11 @@ export function Modules({ code, mods, icon }: { code: string; mods: Mod[]; icon:
       <span className="ll-icon">{icon}</span>
       <h2>{code}.{i + 1} / {mt}</h2>
       <p>{ls.length} lessons and labs</p>
+      <div className="ll-lesson-pills">
+        {ls.map((l, j) => <span key={l} className={"ll-lesson-pill" + (l.startsWith("Lab:") ? " lab" : "")} title={l}>
+          Lesson {j + 1}{l.startsWith("Lab:") ? " · Lab" : ""}
+        </span>)}
+      </div>
       {open === i && <div className="ll-lessons">
         {ls.map((l, j) => <div key={l} className={"ll-lesson" + (l.startsWith("Lab:") ? " lab" : "")} style={{ animationDelay: `${120 + j * 50}ms` }}>
           <h3>{l.startsWith("Lab:") ? "Lab" : `Lesson ${j + 1}`}</h3>
