@@ -1,0 +1,42 @@
+.db { --bg: #FAFAFA; --panel: #FFFFFF; --line: #EDEDED; --ink: #111119; --sub: #6B6B70; --mute: #85858A; --hover: #F4F4F5; --on: #F0F0F1;
+  height: 100vh; height: 100dvh; background: var(--panel); color: var(--ink); font-family: var(--font-inter), system-ui, sans-serif; display: flex; }
+.ll-dark .db { --bg: #0C0C0E; --panel: #131316; --line: #24242A; --ink: #F2F2F3; --sub: #A0A0A8; --mute: #7A7A82; --hover: #1C1C21; --on: #232329; }
+.db-shell { flex: 1; display: flex; min-width: 0; background: var(--panel); overflow: hidden; }
+.db svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+.db-rail { width: 52px; flex: none; display: flex; flex-direction: column; align-items: center; padding: 8px 0; border-right: 1px solid var(--line); }
+.db-logo { width: 36px; height: 36px; border-radius: 9px; background: #FF9500; display: grid; place-items: center; }
+.db-logo i { width: 18px; height: 9px; border-radius: 50%; background: #111119; }
+.db-rail nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.db-rail button { width: 38px; height: 38px; border: 0; border-radius: 9px; background: transparent; color: var(--sub); display: grid; place-items: center; cursor: pointer; transition: background .15s, color .15s; }
+.db-rail button:hover { background: var(--hover); color: var(--ink); }
+.db-rail button[aria-current="page"] { background: var(--on); color: var(--ink); }
+.db-rail button svg { width: 18px; height: 18px; }
+.db-avatar { width: 36px; height: 36px; border-radius: 9px; background: var(--on); color: var(--sub); display: grid; place-items: center; font-size: 13px; font-weight: 500; }
+
+.db-side { width: 256px; flex: none; box-sizing: border-box; padding: 12px 16px; border-right: 1px solid var(--line); overflow: hidden; transition: width .2s cubic-bezier(.2,.8,.2,1), padding .2s cubic-bezier(.2,.8,.2,1); }
+.db-side[data-open="false"] { width: 0; padding-left: 0; padding-right: 0; border-right: 0; }
+.db-side-head { display: flex; align-items: center; justify-content: space-between; height: 24px; padding: 0 0 0 0; margin-bottom: 28px; white-space: nowrap; }
+.db-side-head h2 { margin: 0; font-size: 16px; font-weight: 500; }
+.db-icon-btn { width: 24px; height: 24px; border: 0; border-radius: 6px; background: transparent; color: var(--mute); display: grid; place-items: center; cursor: pointer; }
+.db-icon-btn:hover { background: var(--hover); color: var(--ink); }
+.db-group { margin-bottom: 26px; white-space: nowrap; }
+.db-group h3 { margin: 0 0 6px; padding: 0 10px; font-size: 11px; font-weight: 400; color: var(--mute); }
+.db-group button { width: 100%; height: 30px; display: flex; align-items: center; gap: 8px; padding: 0 10px; margin-bottom: 3px; border: 0; border-radius: 7px; background: transparent; color: var(--sub); font: inherit; font-size: 13px; text-align: left; cursor: pointer; transition: background .15s, color .15s; }
+.db-group button:hover { background: var(--hover); color: var(--ink); }
+.db-group button[aria-current="page"] { background: var(--on); color: var(--ink); font-weight: 500; }
+.db-empty { padding: 0 10px; font-size: 13px; color: var(--mute); white-space: nowrap; }
+
+.db-main { flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 40px 48px; overflow-y: auto; }
+.db-side { overflow-y: auto; }
+.db-main-head { display: flex; align-items: center; gap: 12px; }
+.db-main h1 { margin: 0; font-size: 32px; font-weight: 500; letter-spacing: -0.02em; }
+.db-main p { margin: 10px 0 0; max-width: 560px; font-size: 14px; line-height: 1.7; color: var(--mute); }
+.db-blank { flex: 1; margin-top: 40px; border: 1px dashed var(--line); border-radius: 12px; display: grid; place-items: center; color: var(--mute); font-size: 13px; }
+
+@media (max-width: 860px) {
+  .db-side { position: absolute; z-index: 5; top: 0; bottom: 0; left: 52px; background: var(--panel); box-shadow: 8px 0 24px #0000000F; }
+  .db-shell { position: relative; }
+  .db-main { padding: 24px 16px; }
+  .db-main h1 { font-size: 24px; }
+}
