@@ -23,17 +23,15 @@ const SHORTCUTS = [
   { l: "Close menu", k: ["Esc"] },
 ];
 
-export function ProfileMenu({ icons: I, onNavigate }: { icons: Record<IconKey, React.ReactNode>; onNavigate: (area: string, page?: string) => void }) {
+export function ProfileMenu({ icons: I, onNavigate, dark, onToggleTheme }: { icons: Record<IconKey, React.ReactNode>; onNavigate: (area: string, page?: string) => void; dark: boolean; onToggleTheme: () => void }) {
   const [open, setOpen] = useState(false);
   const [view, setView] = useState<"main" | "shortcuts">("main");
   const [dir, setDir] = useState(1);
-  const [dark, setDark] = useState(false);
   const [h, setH] = useState<number | "auto">("auto");
   const root = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const body = useRef<HTMLDivElement>(null);
 
-  useEffect(() => { setDark(document.documentElement.classList.contains("ll-dark")); }, []);
 
   const close = (refocus = true) => { setOpen(false); if (refocus) trigger.current?.focus(); };
   const go = (v: "main" | "shortcuts") => { setDir(v === "shortcuts" ? 1 : -1); setView(v); };
@@ -64,7 +62,6 @@ export function ProfileMenu({ icons: I, onNavigate }: { icons: Record<IconKey, R
 
   useEffect(() => { if (open) requestAnimationFrame(() => body.current?.querySelector<HTMLElement>("[data-item]")?.focus()); }, [open, view]);
 
-  const toggleTheme = () => { const d = !dark; setDark(d); document.documentElement.classList.toggle("ll-dark", d); try { localStorage.setItem("ll-theme", d ? "dark" : "light"); } catch {} };
   const nav = (area: string, page?: string) => { onNavigate(area, page); close(); };
 
   return <MotionConfig reducedMotion="user">
@@ -86,7 +83,7 @@ export function ProfileMenu({ icons: I, onNavigate }: { icons: Record<IconKey, R
                   <div className="db-pm-sep" />
                   <button type="button" role="menuitem" data-item onClick={() => nav("settings", "profile")}>{I.user}Profile</button>
                   <button type="button" role="menuitem" data-item onClick={() => nav("settings")}>{I.gear}Settings</button>
-                  <button type="button" role="menuitemcheckbox" aria-checked={dark} data-item onClick={toggleTheme}>{I.moon}Dark mode<span className="db-sw" data-on={dark}><i /></span></button>
+                  <button type="button" role="menuitemcheckbox" aria-checked={dark} data-item onClick={onToggleTheme}>{I.moon}Dark mode<span className="db-sw" data-on={dark}><i /></span></button>
                   <button type="button" role="menuitem" data-item onClick={() => go("shortcuts")}>{I.keyboard}Keyboard shortcuts<span className="db-pm-end">{I.chevronRight}</span></button>
                   <button type="button" role="menuitem" data-item onClick={() => close()}>{I.help}Help & feedback</button>
                   <div className="db-pm-sep" />

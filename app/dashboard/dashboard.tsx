@@ -2,12 +2,13 @@
 import { useEffect, useState } from "react";
 import type { IconKey } from "./page";
 import { ProfileMenu } from "./profile-menu";
+import { OverviewFeed } from "./feed";
+import { completed, greeting, suggestions, upNext } from "./feed-data";
 
 
 const rail: { id: string; l: string; i: IconKey }[] = [
   { id: "home", l: "Home", i: "home" },
   { id: "learn", l: "Learn", i: "book" },
-  { id: "progress", l: "Progress", i: "chart" },
   { id: "notes", l: "Notes", i: "note" },
 ];
 const settings = { id: "settings", l: "Settings" };
@@ -19,6 +20,7 @@ const groups: Record<string, { h: string; items: Item[] }[]> = {
       { id: "overview", l: "Overview", i: "grid", d: "A snapshot of where you are across every track, and what to pick up next." },
       { id: "continue", l: "Continue learning", i: "play", d: "Jump back into the lesson or lab you were last working on." },
       { id: "schedule", l: "Study plan", i: "calendar", d: "The sessions you've planned for this week, built around your learning goals." },
+      { id: "completed", l: "Completed", i: "check", d: "Lessons, labs, and projects you've finished, most recent first." },
     ] },
   ],
   learn: [
@@ -27,18 +29,13 @@ const groups: Record<string, { h: string; items: Item[] }[]> = {
       { id: "b", l: "Agent Engineering", i: "layers", d: "How agents actually work, from models and tools to loops, memory, safety, and production." },
       { id: "c", l: "Build & Run a Business", i: "layers", d: "Build, launch, and operate a real business from zero, with agents as leverage." },
     ] },
+    { h: "Labs & projects", items: [
+      { id: "labs", l: "Labs", i: "flask", d: "Hands-on labs that close out each module." },
+      { id: "projects", l: "Projects", i: "hammer", d: "Everything you've built from your labs, in progress and shipped." },
+    ] },
     { h: "Library", items: [
       { id: "courses", l: "All courses", i: "book", d: "Every course in the curriculum, across all three tracks." },
-      { id: "labs", l: "Labs", i: "flask", d: "Hands-on labs that close out each module." },
       { id: "saved", l: "Saved", i: "bookmark", d: "Lessons and courses you've saved for later." },
-    ] },
-  ],
-  progress: [
-    { h: "Your progress", items: [
-      { id: "summary", l: "Summary", i: "chart", d: "How far you've come in each track, course, and module." },
-      { id: "completed", l: "Completed", i: "check", d: "Lessons, labs, and courses you've finished." },
-      { id: "streak", l: "Streak", i: "flame", d: "Your daily learning streak and study time over the past weeks." },
-      { id: "milestones", l: "Milestones", i: "trophy", d: "Capstones and milestones you've reached along the way." },
     ] },
   ],
   notes: [
@@ -65,7 +62,10 @@ const groups: Record<string, { h: string; items: Item[] }[]> = {
 export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode> }) {
   const [area, setArea] = useState("home");
   const [page, setPage] = useState<Record<string, string>>(() => Object.fromEntries(Object.entries(groups).map(([k, g]) => [k, g[0].items[0].id])));
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
+  useEffect(() => { setDark(document.documentElement.classList.contains("ll-dark")); }, []);
+  const toggleTheme = () => { const d = !dark; setDark(d); document.documentElement.classList.toggle("ll-dark", d); try { localStorage.setItem("ll-theme", d ? "dark" : "light"); } catch {} };
 
   useEffect(() => {
     const key = (e: KeyboardEvent) => { if (e.key === "[" && !(e.target instanceof HTMLInputElement)) setOpen(o => !o); };
@@ -79,6 +79,10 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
   const list = groups[area] ?? [];
   const cur = list.flatMap(g => g.items).find(it => it.id === page[area]);
   const title = cur?.l ?? section.l;
+  const feed = area === "home" && page.home === "overview";
+
+  // Overview is a focused feed: collapse the sidebar on arrival, reopen it when leaving.
+  useEffect(() => { setOpen(!feed); }, [feed]);
 
   return <div className="db">
     <div className="db-shell">
@@ -88,7 +92,10 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
           {rail.map(r => <button key={r.id} type="button" aria-label={r.l} title={r.l} aria-current={r.id === area ? "page" : undefined}
             onClick={() => go(r.id)}>{I[r.i]}</button>)}
         </nav>
-        <ProfileMenu icons={I} onNavigate={show} />
+        <button type="button" className="db-theme" aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} title={dark ? "Light mode" : "Dark mode"} onClick={toggleTheme}>
+          <span data-on={!dark}>{I.moon}</span><span data-on={dark}>{I.sun}</span>
+        </button>
+        <ProfileMenu icons={I} onNavigate={show} dark={dark} onToggleTheme={toggleTheme} />
       </aside>
 
       <aside className="db-side" data-open={open} aria-hidden={!open}>
@@ -103,14 +110,17 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
         </div>) : <p className="db-empty">Nothing here yet.</p>}
       </aside>
 
-      <main className="db-main">
+      {feed ? <main className="db-main db-main-feed">
+        {!open && <button type="button" className="db-icon-btn db-feed-expand" aria-label="Expand sidebar" onClick={() => setOpen(true)} style={{ transform: "scaleX(-1)" }}>{I.panel}</button>}
+        <OverviewFeed I={I} greeting={greeting} suggestions={suggestions} upNext={upNext} completed={completed} />
+      </main> : <main className="db-main">
         <div className="db-main-head">
           {!open && <button type="button" className="db-icon-btn" aria-label="Expand sidebar" onClick={() => setOpen(true)} style={{ transform: "scaleX(-1)" }}>{I.panel}</button>}
           <h1>{title}</h1>
         </div>
         <p>{cur?.d}</p>
         <div className="db-blank">Content coming soon</div>
-      </main>
+      </main>}
     </div>
   </div>;
 }

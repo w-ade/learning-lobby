@@ -1,0 +1,72 @@
+/* Canvas shell */
+.cv { position: fixed; inset: 0; background: var(--bg); color: var(--ink); font-family: var(--font-inter), system-ui, sans-serif; outline: none; overscroll-behavior: none; }
+.cv:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+.cv svg { width: 16px; height: 16px; flex: none; }
+.cv-view { position: absolute; inset: 0; overflow: hidden; cursor: default; touch-action: none; overscroll-behavior: none; }
+.cv-world { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.cv[data-space] .cv-view, .cv[data-panning] .cv-view { cursor: default; }
+.cv[data-space] .cv-preview { pointer-events: none; }
+
+.cv-item { position: absolute; }
+.cv-label { display: flex; align-items: center; gap: 4px; height: 24px; margin-bottom: 8px; font-size: 12px; color: var(--mute); }
+.cv-handle, .cv-name { border: 0; background: transparent; color: inherit; font: inherit; padding: 0; cursor: default; border-radius: 5px; }
+.cv-handle { width: 20px; height: 20px; display: grid; place-items: center; touch-action: none; }
+.cv-handle:hover, .cv-name:hover { color: var(--ink); }
+.cv-handle:focus-visible, .cv-name:focus-visible, .cv-bar button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cv-name { padding: 0 4px; height: 20px; }
+.cv-copied { color: var(--accent); }
+.cv-select { user-select: all; color: var(--ink); }
+.cv-preview { position: relative; }
+
+.cv-bar { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 12px;
+  background: color-mix(in srgb, var(--panel) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 1px 0 #26262B1A, 0 0 0 1px var(--line), 0 8px 20px -8px #26262B33; }
+.cv-bar > button, .cv-seg button { height: 28px; min-width: 28px; display: grid; place-items: center; padding: 0 8px; border: 0; border-radius: 8px; background: transparent; color: var(--sub); font: inherit; font-size: 12px; font-weight: 500; cursor: default; }
+.cv-bar > button:hover, .cv-seg button:hover { background: var(--hover); color: var(--ink); }
+.cv-zoom { min-width: 44px; text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--sub); }
+.cv-sep { width: 1px; height: 16px; margin: 0 4px; background: var(--line); }
+.cv-seg { display: flex; gap: 2px; }
+.cv-seg button[aria-checked="true"] { background: var(--on); color: var(--ink); }
+.cv-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+/* Card mockups */
+.cv-card { box-sizing: border-box; display: flex; flex-direction: column; padding: 16px; border-radius: 12px; background: var(--panel); box-shadow: inset 0 0 0 1px var(--line); font-size: 13px; }
+.cv-chip { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; background: var(--hover); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.cv-row { display: flex; align-items: center; justify-content: space-between; }
+.cv-eyebrow { margin: 20px 0 0; font-size: 12px; color: var(--mute); }
+.cv-card h3 { margin: 4px 0 0; font-size: 14px; font-weight: 500; line-height: 1.4; }
+.cv-desc { margin: 4px 0 0; line-height: 1.5; color: var(--sub); }
+.cv-meta { display: flex; align-items: center; gap: 6px; margin: 12px 0 0; font-size: 12px; color: var(--mute); }
+.cv-meta svg { width: 14px; height: 14px; }
+.cv-progress { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.cv-progress b { flex: 1; height: 4px; border-radius: 99px; background: var(--on); overflow: hidden; }
+.cv-progress i { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.cv-progress span { font-size: 12px; color: var(--mute); font-variant-numeric: tabular-nums; }
+.cv-actions { display: flex; align-items: center; gap: 16px; margin-top: 16px; }
+.cv-btn { height: 28px; padding: 0 12px; border: 0; border-radius: 7px; background: transparent; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer; transition: background .12s; }
+.cv-btn:hover { background: var(--hover); }
+.cv-link { display: inline-flex; align-items: center; gap: 2px; font-size: 12.5px; color: var(--accent); text-decoration: none; }
+.cv-link svg { transition: transform .15s cubic-bezier(.23,1,.32,1); }
+.cv-link:hover svg { transform: translateX(2px); }
+.cv-list { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.cv-list li { display: flex; align-items: center; gap: 8px; min-height: 28px; color: var(--sub); }
+.cv-list li[data-done="true"] { color: var(--mute); }
+.cv-list-i { display: grid; color: var(--mute); }
+.cv-list li[data-done="true"] .cv-list-i { color: var(--accent); }
+.cv-list-i svg { width: 14px; height: 14px; }
+.cv-list-t { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cv-tag { padding: 1px 6px; border-radius: 5px; font-size: 11px; color: var(--sub); box-shadow: inset 0 0 0 1px var(--line); }
+.cv-status { display: inline-flex; align-items: center; gap: 4px; height: 24px; padding: 0 8px; border: 0; border-radius: 6px; background: transparent; color: var(--mute); font: inherit; font-size: 12px; cursor: pointer; }
+.cv-status:hover { background: var(--hover); color: var(--ink); }
+.cv-status[aria-pressed="true"] { color: var(--accent); }
+.cv-status svg { width: 14px; height: 14px; }
+
+.cv-pill { display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-radius: 99px; font-size: 11.5px; color: var(--sub); box-shadow: inset 0 0 0 1px var(--line); }
+.cv-pill[data-shipped="true"] { color: #3FA35B; }
+.cv-pill svg { width: 12px; height: 12px; }
+.cv-checks button.cv-list-i { border: 0; padding: 0; background: transparent; cursor: pointer; border-radius: 50%; }
+.cv-checks button.cv-list-i:hover { color: var(--ink); }
+.cv-links { display: flex; gap: 14px; margin-top: 10px; }
+.cv-links a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--sub); text-decoration: none; }
+.cv-links a:hover { color: var(--ink); }
+.cv-links svg { width: 13px; height: 13px; }
