@@ -1,5 +1,5 @@
 // One normalized curriculum: Track > Course > Module > Lesson | Lab. Built from catalog-data so /planning and /dashboard never disagree.
-import { agentCourses, businessCourses, courses as foundationCourses, type Mod } from "./catalog-data";
+import { agentCourses, businessCourses, designCourses, courses as foundationCourses, type Mod } from "./catalog-data";
 
 export type Item = { n: number; slug: string; title: string; kind: "lesson" | "lab" };
 export type Module = { n: number; slug: string; code: string; title: string; items: Item[] };
@@ -29,6 +29,7 @@ export const tracks: Track[] = [
   track("a", "A", "Technical Foundations", "The computing, engineering, and platform groundwork everything else is built on.", "#F2A04A", foundationCourses as Raw[]),
   track("b", "B", "Agent Engineering", "How agents actually work, from models and tools to loops, memory, safety, and production.", "#E8C928", agentCourses as Raw[]),
   track("c", "C", "Build & Run a Business with Agents", "Build, launch, and operate a real business from zero, with agents as leverage, not the business model.", "#4CBF6B", businessCourses),
+  track("d", "D", "Design Technologist", "Design technology from Figma to production: layout, motion, scroll, WebGL, systems, and AI interfaces, one shipped build a week.", "#EF6FB5", designCourses),
 ];
 
 export const getTrack = (t: string) => tracks.find(x => x.slug === t);

@@ -22,7 +22,7 @@ export function Header({ title, sub, count }: { title: string; sub: string; coun
     <div className="ll-title">
       <h1>{title}</h1>
       <p>{sub}</p>
-      {count ? <span style={{ display: "inline-block", marginTop: 10, padding: "3px 10px", borderRadius: 999, fontSize: 12, fontWeight: 500, ...(path === "/planning/b" ? { background: "transparent", color: "#E8C928", border: "1.5px solid #E8C928" } : { background: "transparent", color: "#F2A04A", border: "1.5px solid #F2A04A" }) }}>{count} courses</span> : null}
+      {count ? <span style={{ display: "inline-block", marginTop: 10, padding: "3px 10px", borderRadius: 999, fontSize: 12, fontWeight: 500, ...(path === "/planning/d" ? { background: "transparent", color: "#D9549D", border: "1.5px solid #EF6FB5" } : path === "/planning/b" ? { background: "transparent", color: "#E8C928", border: "1.5px solid #E8C928" } : { background: "transparent", color: "#F2A04A", border: "1.5px solid #F2A04A" }) }}>{count} courses</span> : null}
     </div>
   </>;
 }

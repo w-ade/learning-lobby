@@ -13,6 +13,7 @@ const progress: Record<string, { cur: number; pct: number; why: string }> = {
   a: { cur: -1, pct: 0, why: "Still being written. Read the course outlines in the meantime." },
   b: { cur: 0, pct: 18, why: "Picked up from the feed: two lessons into Module 1." },
   c: { cur: -1, pct: 0, why: "Opens up once you're through Agent Engineering." },
+  d: { cur: -1, pct: 0, why: "Starts with a 10-day application sprint: resume, portfolio, and a sprint prototype." },
 };
 
 const LAYOUTS = [{ id: "stack", l: "Stack" }, { id: "grid", l: "Grid" }, { id: "focus", l: "Focus" }] as const;

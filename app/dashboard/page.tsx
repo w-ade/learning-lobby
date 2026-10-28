@@ -9,6 +9,7 @@ const I = icons({
   grid: "IconGrid", play: "IconPlayCircle", calendar: "IconCalendar1", layers: "IconLayersThree", flask: "IconLab", bookmark: "IconBookmark",
   check: "IconCheckCircle2", flame: "IconFire1", hammer: "IconHammer", sparkle: "IconSparkle", thumbsDown: "IconThumbsDown", stack: "IconLayersTwo", highlight: "IconHighlight", user: "IconCirclePerson", bell: "IconBell",
   lock: "IconLock", gear: "IconSettingsGear1", moon: "IconMoon", keyboard: "IconKeyboard", help: "IconQuestionmarkCircle", door: "IconDoor",
+  globe: "IconGlobe", search: "IconMagnifyingGlass", plus: "IconPlusSmall",
   chevronLeft: "IconChevronLeft", chevronRight: "IconChevronRight", target: "IconTarget", clock: "IconClock", sun: "IconSun",
 });
 export type IconKey = keyof typeof I;

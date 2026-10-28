@@ -5,6 +5,7 @@ import { ProfileMenu } from "./profile-menu";
 import { OverviewFeed } from "./feed";
 import { completed, greeting, suggestions, upNext } from "./feed-data";
 import { LearnTracks } from "./learn";
+import { ResourceDocs } from "./resources";
 
 
 const rail: { id: string; l: string; i: IconKey }[] = [
@@ -27,11 +28,13 @@ const groups: Record<string, { h: string; items: Item[] }[]> = {
   learn: [
     { h: "Learn", items: [
       { id: "tracks", l: "All tracks", i: "grid", d: "Every track at a glance, with where you are in each." },
+      { id: "resources", l: "Resource docs", i: "globe", d: "Docs and references for the tools you use, collected as bookmarks." },
     ] },
     { h: "Tracks", items: [
       { id: "a", l: "Technical Foundations", i: "layers", d: "The computing, engineering, and platform groundwork everything else is built on." },
       { id: "b", l: "Agent Engineering", i: "layers", d: "How agents actually work, from models and tools to loops, memory, safety, and production." },
       { id: "c", l: "Build & Run a Business", i: "layers", d: "Build, launch, and operate a real business from zero, with agents as leverage." },
+      { id: "d", l: "Design Technologist", i: "layers", d: "Design technology from Figma to production: layout, motion, scroll, WebGL, systems, and AI interfaces, one shipped build a week." },
     ] },
     { h: "Labs & projects", items: [
       { id: "labs", l: "Labs", i: "flask", d: "Hands-on labs that close out each module." },
@@ -66,7 +69,8 @@ const groups: Record<string, { h: string; items: Item[] }[]> = {
 export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode> }) {
   const [area, setArea] = useState("home");
   const [page, setPage] = useState<Record<string, string>>(() => Object.fromEntries(Object.entries(groups).map(([k, g]) => [k, g[0].items[0].id])));
-  const [open, setOpen] = useState(false);
+  // Sidebar always starts open and never auto-collapses; only the user closes it.
+  const [open, setOpen] = useState(true);
   const [dark, setDark] = useState(false);
   useEffect(() => { setDark(document.documentElement.classList.contains("ll-dark")); }, []);
   const toggleTheme = () => { const d = !dark; setDark(d); document.documentElement.classList.toggle("ll-dark", d); try { localStorage.setItem("ll-theme", d ? "dark" : "light"); } catch {} };
@@ -78,17 +82,13 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
   }, []);
 
   const section = area === settings.id ? settings : rail.find(r => r.id === area)!;
-  const go = (id: string) => { if (id === area) setOpen(o => !o); else { setArea(id); setOpen(id !== "learn" || page.learn !== "tracks"); } };
+  const go = (id: string) => { if (id === area) setOpen(o => !o); else { setArea(id); setOpen(true); } };
   const show = (id: string, pg?: string) => { setArea(id); setOpen(true); if (pg) setPage(p => ({ ...p, [id]: pg })); };
   const list = groups[area] ?? [];
   const cur = list.flatMap(g => g.items).find(it => it.id === page[area]);
   const title = cur?.l ?? section.l;
   const feed = area === "home" && page.home === "overview";
-  const learn = area === "learn" && page.learn === "tracks";
-  const focused = feed || learn;
-
-  // Overview and the tracks landing are focused pages: collapse the sidebar on arrival, reopen it when leaving.
-  useEffect(() => { setOpen(!focused); }, [focused]);
+  const learn = area === "learn" && (page.learn === "tracks" || page.learn === "resources");
 
   return <div className="db">
     <div className="db-shell">
@@ -121,7 +121,7 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
         <OverviewFeed I={I} greeting={greeting} suggestions={suggestions} upNext={upNext} completed={completed} />
       </main> : learn ? <main className="db-main db-main-learn">
         {!open && <button type="button" className="db-icon-btn db-feed-expand" aria-label="Expand sidebar" onClick={() => setOpen(true)} style={{ transform: "scaleX(-1)" }}>{I.panel}</button>}
-        <LearnTracks I={I} />
+        {page.learn === "resources" ? <ResourceDocs I={I} /> : <LearnTracks I={I} />}
       </main> : <main className="db-main">
         <div className="db-main-head">
           {!open && <button type="button" className="db-icon-btn" aria-label="Expand sidebar" onClick={() => setOpen(true)} style={{ transform: "scaleX(-1)" }}>{I.panel}</button>}
