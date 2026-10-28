@@ -10,6 +10,7 @@ import { NoteCard, NotesBoard, NotesInbox, StackedPanes, type BoardNode, type Hi
 import { BookCard, DocSetCard, HighlightPopup, LibraryPage, ReaderFocus, type Book, type DocSet, type Link } from "./library";
 import { CompletedRow, FeedGreeting, OverviewFeed, SuggestionStack, UpNext } from "../dashboard/feed";
 import { completed, greeting, suggestions, upNext } from "../dashboard/feed-data";
+import { AgentsWorking, Syncing, TeamReady } from "./empty-states";
 
 export type Entry = { id: string; name: string; x: number; y: number; w: number; h?: number; render: (I: Icons) => React.ReactNode };
 
@@ -127,4 +128,7 @@ export const registry: Entry[] = [
   { id: "suggestion-stack", name: "Suggestion stack", x: 1600, y: 160, w: 400, render: I => <SuggestionStack I={I} items={suggestions} /> },
   { id: "up-next", name: "Up next list", x: 1600, y: 660, w: 400, render: I => <UpNext I={I} title="Up next" rows={upNext} /> },
   { id: "completed-row", name: "Completed row", x: 1600, y: 940, w: 400, render: I => <CompletedRow I={I} items={completed} /> },
+  { id: "empty-agents-working", name: "Empty feed · agents working", x: 2080, y: 0, w: 498, render: () => <AgentsWorking /> },
+  { id: "empty-team-ready", name: "Empty feed · team ready", x: 2080, y: 380, w: 498, render: () => <TeamReady /> },
+  { id: "onboarding-syncing", name: "Onboarding · syncing", x: 2660, y: 0, w: 487, render: () => <Syncing /> },
 ];

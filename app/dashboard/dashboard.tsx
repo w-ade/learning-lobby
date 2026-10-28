@@ -4,6 +4,7 @@ import type { IconKey } from "./page";
 import { ProfileMenu } from "./profile-menu";
 import { OverviewFeed } from "./feed";
 import { completed, greeting, suggestions, upNext } from "./feed-data";
+import { LearnTracks } from "./learn";
 
 
 const rail: { id: string; l: string; i: IconKey }[] = [
@@ -24,6 +25,9 @@ const groups: Record<string, { h: string; items: Item[] }[]> = {
     ] },
   ],
   learn: [
+    { h: "Learn", items: [
+      { id: "tracks", l: "All tracks", i: "grid", d: "Every track at a glance, with where you are in each." },
+    ] },
     { h: "Tracks", items: [
       { id: "a", l: "Technical Foundations", i: "layers", d: "The computing, engineering, and platform groundwork everything else is built on." },
       { id: "b", l: "Agent Engineering", i: "layers", d: "How agents actually work, from models and tools to loops, memory, safety, and production." },
@@ -74,15 +78,17 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
   }, []);
 
   const section = area === settings.id ? settings : rail.find(r => r.id === area)!;
-  const go = (id: string) => { if (id === area) setOpen(o => !o); else { setArea(id); setOpen(true); } };
+  const go = (id: string) => { if (id === area) setOpen(o => !o); else { setArea(id); setOpen(id !== "learn" || page.learn !== "tracks"); } };
   const show = (id: string, pg?: string) => { setArea(id); setOpen(true); if (pg) setPage(p => ({ ...p, [id]: pg })); };
   const list = groups[area] ?? [];
   const cur = list.flatMap(g => g.items).find(it => it.id === page[area]);
   const title = cur?.l ?? section.l;
   const feed = area === "home" && page.home === "overview";
+  const learn = area === "learn" && page.learn === "tracks";
+  const focused = feed || learn;
 
-  // Overview is a focused feed: collapse the sidebar on arrival, reopen it when leaving.
-  useEffect(() => { setOpen(!feed); }, [feed]);
+  // Overview and the tracks landing are focused pages: collapse the sidebar on arrival, reopen it when leaving.
+  useEffect(() => { setOpen(!focused); }, [focused]);
 
   return <div className="db">
     <div className="db-shell">
@@ -113,6 +119,9 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
       {feed ? <main className="db-main db-main-feed">
         {!open && <button type="button" className="db-icon-btn db-feed-expand" aria-label="Expand sidebar" onClick={() => setOpen(true)} style={{ transform: "scaleX(-1)" }}>{I.panel}</button>}
         <OverviewFeed I={I} greeting={greeting} suggestions={suggestions} upNext={upNext} completed={completed} />
+      </main> : learn ? <main className="db-main db-main-learn">
+        {!open && <button type="button" className="db-icon-btn db-feed-expand" aria-label="Expand sidebar" onClick={() => setOpen(true)} style={{ transform: "scaleX(-1)" }}>{I.panel}</button>}
+        <LearnTracks I={I} />
       </main> : <main className="db-main">
         <div className="db-main-head">
           {!open && <button type="button" className="db-icon-btn" aria-label="Expand sidebar" onClick={() => setOpen(true)} style={{ transform: "scaleX(-1)" }}>{I.panel}</button>}

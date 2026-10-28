@@ -1,0 +1,58 @@
+/* Feed empty states + onboarding mockups. Light-only for now: colors come from the references. */
+.es-card { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; border-radius: 48px; background: #FFFFFF; box-shadow: inset 0 0 0 1px #EDEDED; color: #000000; overflow: hidden; }
+.es-card h3 { margin: 0; font-size: 18.6px; font-weight: 400; line-height: 24px; letter-spacing: -0.025em; }
+.es-card p { margin: 0; max-width: 386px; font-size: 16.6px; line-height: 27.8px; letter-spacing: -0.026em; color: #6A6969; }
+
+.es-working { height: 308.8px; padding: 56px 40px 0; }
+.es-trio { display: flex; height: 41.6px; margin-bottom: 39.4px; }
+.es-trio span { position: relative; width: 41.6px; height: 41.6px; display: grid; place-items: center; border-radius: 13px; color: #FFFFFF; box-shadow: 0 0 0 2.4px #FFFFFF; }
+.es-trio span + span { margin-left: -9px; }
+.es-trio span:nth-child(1) { z-index: 3; }
+.es-trio span:nth-child(2) { z-index: 2; }
+.es-trio span:nth-child(3) { z-index: 1; }
+.cv .es-trio svg { width: 32px; height: 32px; stroke-width: 2.6; }
+.es-trio span:nth-child(3) svg { transform: translateX(3px); }
+.es-working p { margin-top: 15.4px; }
+
+.es-mascot { position: relative; display: inline-grid; flex: none; }
+.es-mascot > svg { width: 100%; height: 100%; display: block; }
+.es-mascot-glyph { position: absolute; left: 22%; top: 32.5%; width: 56%; height: 47%; display: grid; place-items: center; }
+.cv .es-mascot-glyph svg, .es-mascot-glyph svg { width: 52%; height: auto; }
+.cv .es-mascot > svg { width: 100%; height: 100%; }
+
+.es-ready { height: 446.4px; padding: 0 40px; }
+.es-crew { position: relative; align-self: stretch; height: 208px; margin: 0 -40px; }
+.es-crew > span { position: absolute; left: 50%; top: 104px; display: block; }
+.es-ready h3 { margin-top: 21px; }
+.es-ready p { margin-top: 13px; max-width: 370px; }
+.es-cta { display: inline-flex; align-items: center; gap: 10px; height: 38.4px; margin-top: 32px; padding: 0 14px; border: 0; border-radius: 12.8px; background: #000000; color: #FFFFFF; font: inherit; font-size: 16px; cursor: pointer; }
+.cv .es-cta svg { width: 16px; height: 16px; }
+
+.es-sync { width: 487px; color: #000000; }
+.es-sync h2 { margin: 33px 0 0; font-size: 24px; font-weight: 400; line-height: 34px; letter-spacing: -0.01em; }
+.es-sync-sub { margin: 0; font-size: 24px; line-height: 34px; letter-spacing: -0.01em; color: #858585; }
+.es-bubbles { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 8.8px; margin-top: 20px; }
+.es-bubbles p { margin: 0; padding: 7px 13px; border-radius: 12px; background: #EFEFEF; font-size: 16px; line-height: 24px; }
+.es-bubbles i { position: absolute; border-radius: 50%; background: #EFEFEF; }
+.es-bubbles i:nth-of-type(1) { left: 2px; bottom: -6px; width: 5px; height: 5px; }
+.es-bubbles i:nth-of-type(2) { left: -3px; bottom: -10px; width: 3px; height: 3px; }
+.es-steps { display: flex; margin-top: 39px; }
+.es-steps span { position: relative; width: 29px; height: 29px; display: grid; place-items: center; border-radius: 8px; box-shadow: 0 0 0 2px #FFFFFF; }
+.es-steps span + span { margin-left: -5px; }
+.es-steps span:nth-child(1) { z-index: 5; } .es-steps span:nth-child(2) { z-index: 4; } .es-steps span:nth-child(3) { z-index: 3; } .es-steps span:nth-child(4) { z-index: 2; }
+.cv .es-steps svg { width: 17px; height: 17px; }
+
+.es-ask { margin-top: 77px; padding: 19px 19px 19px 20px; border-radius: 32px; background: #FFFFFF; box-shadow: inset 0 0 0 1px #E4E4E4, 0 12px 28px -12px #26262B26, 0 2px 6px -2px #26262B14; }
+.es-ask-head { display: flex; align-items: flex-start; justify-content: space-between; }
+.es-esc { display: inline-flex; align-items: center; gap: 5px; height: 39px; padding: 0 14px 0 12px; border: 0; border-radius: 11px; background: #FFFFFF; box-shadow: inset 0 0 0 1px #E4E4E4; color: #555555; font: inherit; font-size: 16px; cursor: pointer; }
+.cv .es-esc svg { width: 14px; height: 14px; }
+.es-ask h3 { margin: 37px 0 0; font-size: 16px; font-weight: 400; line-height: 24px; }
+.es-ask p { max-width: 432px; margin: 10px 0 0; font-size: 16px; line-height: 29.6px; color: #6A6969; }
+.es-field { display: block; margin-top: 25px; }
+.es-field-l { display: block; font-size: 16px; line-height: 24px; }
+.es-input { display: flex; height: 39px; margin-top: 9px; border-radius: 11px; box-shadow: inset 0 0 0 1px #333333; overflow: hidden; }
+.es-prefix { display: grid; place-items: center; padding: 0 12px; box-shadow: inset -1px 0 0 #D9D9D9; color: #6A6969; font-size: 16px; }
+.es-input input { flex: 1; min-width: 0; padding: 0 12px; border: 0; background: transparent; color: #000000; font: inherit; font-size: 16px; outline: none; }
+.es-input input::placeholder { color: #6A6969; }
+.es-input button { display: inline-flex; align-items: center; gap: 8px; padding: 0 13px; border: 0; background: #F2F2F2; box-shadow: inset 1px 0 0 #E0E0E0; color: #9A9A9A; font: inherit; font-size: 16px; cursor: pointer; }
+.cv .es-input button svg { width: 14px; height: 14px; }
