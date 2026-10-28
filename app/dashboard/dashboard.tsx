@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { IconKey } from "./page";
+import { ProfileMenu } from "./profile-menu";
 
 
 const rail: { id: string; l: string; i: IconKey }[] = [
@@ -8,8 +9,8 @@ const rail: { id: string; l: string; i: IconKey }[] = [
   { id: "learn", l: "Learn", i: "book" },
   { id: "progress", l: "Progress", i: "chart" },
   { id: "notes", l: "Notes", i: "note" },
-  { id: "settings", l: "Settings", i: "gear" },
 ];
+const settings = { id: "settings", l: "Settings" };
 
 type Item = { id: string; l: string; i: IconKey; d: string };
 const groups: Record<string, { h: string; items: Item[] }[]> = {
@@ -57,7 +58,6 @@ const groups: Record<string, { h: string; items: Item[] }[]> = {
       { id: "goals", l: "Learning goals", i: "target", d: "What you're working toward and how much time you want to spend each week." },
       { id: "reminders", l: "Study reminders", i: "clock", d: "When we nudge you to keep your streak and study plan on track." },
       { id: "appearance", l: "Appearance", i: "sun", d: "Theme and reading preferences for lessons." },
-      { id: "billing", l: "Billing", i: "billing", d: "Your plan, payment method, and invoices." },
     ] },
   ],
 };
@@ -73,7 +73,9 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
     return () => removeEventListener("keydown", key);
   }, []);
 
-  const section = rail.find(r => r.id === area)!;
+  const section = area === settings.id ? settings : rail.find(r => r.id === area)!;
+  const go = (id: string) => { if (id === area) setOpen(o => !o); else { setArea(id); setOpen(true); } };
+  const show = (id: string, pg?: string) => { setArea(id); setOpen(true); if (pg) setPage(p => ({ ...p, [id]: pg })); };
   const list = groups[area] ?? [];
   const cur = list.flatMap(g => g.items).find(it => it.id === page[area]);
   const title = cur?.l ?? section.l;
@@ -84,9 +86,9 @@ export function Dashboard({ icons: I }: { icons: Record<IconKey, React.ReactNode
         <div className="db-logo" aria-hidden="true"><i /></div>
         <nav aria-label="Primary">
           {rail.map(r => <button key={r.id} type="button" aria-label={r.l} title={r.l} aria-current={r.id === area ? "page" : undefined}
-            onClick={() => { if (r.id === area) setOpen(o => !o); else { setArea(r.id); setOpen(true); } }}>{I[r.i]}</button>)}
+            onClick={() => go(r.id)}>{I[r.i]}</button>)}
         </nav>
-        <div className="db-avatar" aria-label="Account">W</div>
+        <ProfileMenu icons={I} onNavigate={show} />
       </aside>
 
       <aside className="db-side" data-open={open} aria-hidden={!open}>
