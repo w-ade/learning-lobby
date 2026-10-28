@@ -30,14 +30,14 @@ export function TrackCard({ I, label, title, desc, courses, modules, progress, c
   </article>;
 }
 
-export function CourseCard({ I, code, group, title, desc, modules, lessons, labs, progress }: { I: Icons; code: string; group: string; title: string; desc: string; modules: number; lessons: number; labs: number; progress: number }) {
+export function CourseCard({ I, code, group, title, desc, modules, lessons, labs, progress }: { I: Icons; code: string; group: string; title: string; desc: string; modules: number; lessons: number; labs: number; progress?: number }) {
   return <article className="cv-card">
     <span className="cv-chip">{I.book}</span>
     <p className="cv-eyebrow">{code} · {group}</p>
     <h3>{title}</h3>
     <p className="cv-desc">{desc}</p>
     <p className="cv-meta">{modules} modules · {lessons} lessons · {labs} labs</p>
-    <Progress v={progress} />
+    {progress !== undefined && <Progress v={progress} />}
     <Actions I={I} primary="Continue" link="Syllabus" />
   </article>;
 }
@@ -104,5 +104,18 @@ export function ProjectCard({ I, code, module, title, desc, steps, links }: { I:
     <p className="cv-meta">{n} of {state.length} steps</p>
     <div className="cv-links">{links.map(l => <a key={l.l} href="#" onClick={e => e.preventDefault()}>{I[l.i]}{l.l}</a>)}</div>
     <Actions I={I} primary={shipped ? "View project" : "Open project"} link="Lab brief" />
+  </article>;
+}
+
+export function PlannedCourseCard({ I, code, group, title, desc }: { I: Icons; code: string; group?: string; title: string; desc: string }) {
+  return <article className="cv-card cv-planned">
+    <div className="cv-row">
+      <span className="cv-chip">{I.book}</span>
+      <span className="cv-pill">In planning</span>
+    </div>
+    <p className="cv-eyebrow">{code}{group ? ` · ${group}` : ""}</p>
+    <h3>{title}</h3>
+    <p className="cv-desc">{desc}</p>
+    <div className="cv-actions"><a href="#" className="cv-link" onClick={e => e.preventDefault()}>Planning notes{I.chevronRight}</a></div>
   </article>;
 }

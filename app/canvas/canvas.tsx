@@ -14,7 +14,7 @@ const fin = (n: unknown, lo: number, hi: number): n is number => typeof n === "n
 const clamp = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, n));
 const clampCam = (c: Cam): Cam => ({ x: clamp(c.x, -LIM, LIM), y: clamp(c.y, -LIM, LIM), z: clamp(c.z, Z_MIN, Z_MAX) });
 const EDITABLE = "input, textarea, select, [contenteditable=''], [contenteditable='true']";
-const INTERACTIVE = `button, a[href], summary, [role='button'], ${EDITABLE}`;
+const INTERACTIVE = `button, a[href], summary, [role='button'], [tabindex]:not([tabindex='-1']), ${EDITABLE}`;
 
 function load(): { cam: Cam | null; pos: Pos } {
   try {
